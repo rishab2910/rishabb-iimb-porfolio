@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rishab Bulchandani — Personal Portfolio. Management student at IIM Bangalore and H.R. College Mumbai, stage performer, stand-up comedian, and large-scale event operations lead.">
+  <meta name="author" content="Rishab Bulchandani">
+  <title>Rishab Bulchandani — Behind The Curtain</title>
+
+  <!-- Google Fonts: DM Sans, Playfair Display, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Stage Texture & Floor Guidelines -->
+  <div class="stage-noise-overlay" aria-hidden="true"></div>
+  <div class="stage-scaffolding-lines" aria-hidden="true"></div>
+
+  <!-- SKIP TO MAIN CONTENT ACCESSIBILITY LINK -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- SUBTLE THEATRICAL CURTAIN HEADER BORDER -->
+  <div class="theatre-valance" aria-hidden="true">
+    <div class="valance-drape"></div>
+    <div class="valance-cord"></div>
+  </div>
+
+  <!-- NAVIGATION BAR (BACKSTAGE RIG) -->
+  <header class="backstage-nav" role="banner">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Rishab Bulchandani - Return to top">
+        <span class="brand-cue" aria-hidden="true">[ CUE: 00 ]</span>
+        <span class="brand-name">Rishab Bulchandani</span>
+        <span class="brand-role">Stage &amp; Strategy</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" aria-label="Main Portfolio Navigation">
+        <a href="#about" class="nav-link"><span class="nav-num">01.</span> Prologue</a>
+        <a href="#education" class="nav-link"><span class="nav-num">02.</span> Two Tracks</a>
+        <a href="#experience" class="nav-link"><span class="nav-num">03.</span> Production</a>
+        <a href="#awards" class="nav-link"><span class="nav-num">04.</span> Highlight Reel</a>
+        <a href="#skills" class="nav-link"><span class="nav-num">05.</span> Toolkit</a>
+        <a href="#contact" class="nav-link"><span class="nav-num">06.</span> Curtain Call</a>
+      </nav>
+
+      <!-- Physical Backstage Light Switch & Mobile Hamburger -->
+      <div class="nav-controls">
+        <!-- Physical Stage Light Switch -->
+        <div class="switch-housing" title="Toggle Stage Lights (Dark/Light Theme)">
+          <div class="switch-label-tag">
+            <span class="switch-status-led" id="switch-led" aria-hidden="true"></span>
+            <span class="switch-meta" id="switch-status-text">LIGHTS: OFF</span>
+          </div>
+          <button 
+            type="button" 
+            id="stage-light-switch" 
+            class="physical-switch" 
+            role="switch" 
+            aria-checked="false" 
+            aria-label="Turn stage lights on (Switch to light theme)"
+          >
+            <span class="switch-plate">
+              <span class="screw screw-tl" aria-hidden="true"></span>
+              <span class="screw screw-tr" aria-hidden="true"></span>
+              <span class="switch-bezel">
+                <span class="switch-lever"></span>
+              </span>
+              <span class="screw screw-bl" aria-hidden="true"></span>
+              <span class="screw screw-br" aria-hidden="true"></span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          type="button" 
+          id="mobile-nav-toggle" 
+          class="mobile-menu-btn" 
+          aria-expanded="false" 
+          aria-controls="mobile-nav-drawer" 
+          aria-label="Toggle navigation menu"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <span class="drawer-title">// CALL SHEET NAVIGATION</span>
+        <button type="button" id="mobile-nav-close" class="drawer-close-btn" aria-label="Close menu">&times;</button>
+      </div>
+      <nav class="drawer-links" aria-label="Mobile Navigation Links">
+        <a href="#about" class="drawer-link"><span class="drawer-num">ACT I</span> Prologue (About)</a>
+        <a href="#education" class="drawer-link"><span class="drawer-num">ACT II</span> Two Tracks (Education)</a>
+        <a href="#experience" class="drawer-link"><span class="drawer-num">ACT III</span> Production (Experience)</a>
+        <a href="#awards" class="drawer-link"><span class="drawer-num">ACT IV</span> Highlight Reel (Awards)</a>
+        <a href="#skills" class="drawer-link"><span class="drawer-num">ACT V</span> Toolkit (Core Competencies)</a>
+        <a href="#contact" class="drawer-link"><span class="drawer-num">ACT VI</span> Curtain Call (Contact)</a>
+      </nav>
+      <div class="drawer-footer">
+        <p class="drawer-note">Mumbai &amp; Bengaluru, India</p>
+        <a href="Rishab Bulchandani - Resume.pdf" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+          Download Resume (PDF)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN STAGE CONTENT -->
+  <main id="main-content">
+
+    <!-- ===================================================================
+         ACT I: OVERTURE / HERO SECTION
+         =================================================================== -->
+    <section id="hero" class="hero-section" aria-label="Opening Scene">
+      <!-- Theatrical Spotlight Beam Graphic -->
+      <div class="spotlight-rig" aria-hidden="true">
+        <div class="spotlight-cone"></div>
+        <div class="spotlight-dust"></div>
+      </div>
+
+      <div class="stage-container hero-grid">
+        <!-- Hero Textual Content / Stage Left -->
+        <div class="hero-content">
+          <div class="scene-marker">
+            <span class="stage-tag">// SCENE 01: THE OVERTURE</span>
+            <span class="stage-location">MUMBAI &amp; BENGALURU, INDIA</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="hero-first">Rishab</span>
+            <span class="hero-last">Bulchandani</span>
+          </h1>
+
+          <p class="hero-statement">
+            &ldquo;Some people find their voice behind a microphone. Some find it under a spotlight.&rdquo;
+          </p>
+
+          <p class="hero-lead">
+            Undergraduate management student pursuing dual degrees in Digital Business &amp; Entrepreneurship and Management Studies. Experienced in large-scale conference operations, delegate management, public speaking, and competitive performing arts across national collegiate festivals.
+          </p>
+
+          <!-- Dual Academic Track Cards in Hero -->
+          <div class="hero-dual-tracks">
+            <div class="hero-track-card">
+              <span class="track-badge">TRACK 01 &bull; BENGALURU</span>
+              <h2 class="track-title">BBA in Digital Business &amp; Entrepreneurship</h2>
+              <p class="track-institution">Indian Institute of Management (IIM) Bangalore</p>
+              <span class="track-years">2026 &ndash; 2029</span>
+            </div>
+
+            <div class="hero-track-card">
+              <span class="track-badge">TRACK 02 &bull; MUMBAI</span>
+              <h2 class="track-title">Bachelor of Management Studies (BMS)</h2>
+              <p class="track-institution">H.R. College of Commerce and Economics</p>
+              <span class="track-years">2026 &ndash; 2029</span>
+            </div>
+          </div>
+
+          <!-- Hero Action Cues -->
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary">
+              <span class="btn-text">Step Behind The Curtain</span>
+              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            </a>
+            <a href="Rishab Bulchandani - Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="18"/><line x1="15" y1="15" x2="12" y2="18"/></svg>
+              <span class="btn-text">Official Playbill (Resume PDF)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Stage Floor / Rishab's Portrait Center Stage -->
+        <div class="hero-stage-visual">
+          <div class="stage-pedestal">
+            <!-- Floor Spike Tape Marking '+' -->
+            <div class="spike-mark spike-center" title="Stage Center Spike Mark" aria-hidden="true">
+              <span></span>
+              <span></span>
+            </div>
+
+            <!-- Spotlight Aura Around Rishab -->
+            <div class="actor-spotlight-aura" aria-hidden="true"></div>
+
+            <!-- Rishab's Authentic Portrait Image -->
+            <div class="actor-image-frame">
+              <img 
+                src="rishab.png" 
+                alt="Portrait of Rishab Bulchandani on stage in an expressive welcoming posture" 
+                class="actor-portrait"
+                width="420"
+                height="560"
+                loading="eager"
+              >
+              <!-- Floor Stage Shadow -->
+              <div class="stage-floor-shadow" aria-hidden="true"></div>
+            </div>
+
+            <!-- Backstage Slate / Cue Card -->
+            <div class="stage-cue-slate" aria-hidden="true">
+              <div class="slate-line"><span>ACTOR:</span> RISHAB BULCHANDANI</div>
+              <div class="slate-line"><span>SCENE:</span> PROLOGUE // LIVE</div>
+              <div class="slate-line"><span>CUE:</span> LIGHTS UP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage Floor Edge Divider -->
+      <div class="stage-footlights" aria-hidden="true">
+        <span class="footlight"></span>
+        <span class="footlight"></span>
+        <span class="footlight"></span>
+        <span class="footlight"></span>
+        <span class="footlight"></span>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ACT II: ABOUT ME — BEYOND THE SPOTLIGHT
+         =================================================================== -->
+    <section id="about" class="stage-section about-section" aria-label="About Rishab Bulchandani">
+      <div class="stage-container">
+        <!-- Section Header with Backstage Cue -->
+        <div class="section-cue-header">
+          <div class="cue-dossier">
+            <span class="cue-pill">// ACT I : PROLOGUE</span>
+            <span class="cue-timestamp">RUNNING TIME: CONTINUOUS</span>
+          </div>
+          <h2 class="section-title">Beyond The Spotlight</h2>
+          <p class="section-kicker">The dynamic balance between stage performance and high-stakes event operations.</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Stage Left: The Performer Profile -->
+          <div class="stage-column stage-column-left">
+            <div class="wing-tag">STAGE LEFT &bull; FRONT OF HOUSE</div>
+            <h3 class="wing-heading">The Creative Performer</h3>
+            <p class="wing-text">
+              On stage, every second is live. Whether delivering stand-up comedy sets at venues like <em>The Habitat (Pune)</em>, commanding group theatre at national collegiate festivals, or executing competitive group dance choreography, the craft demands instant room reading, improvisational poise, and audience connection under intense pressure.
+            </p>
+            <ul class="wing-highlights" aria-label="Stage Highlights">
+              <li>
+                <span class="bullet-cue">&bull;</span>
+                <span>Inter-collegiate Stand-Up Comedy Winner &amp; Mr. Waves 2026 titleholder at BITS Pilani Goa Campus.</span>
+              </li>
+              <li>
+                <span class="bullet-cue">&bull;</span>
+                <span>Solo performance for Salman Khan on national television and appearances in two commercial ads.</span>
+              </li>
+              <li>
+                <span class="bullet-cue">&bull;</span>
+                <span>1st Place achievements at prestigious festivals including Malhar (St. Xavier's) and Kiran (K.C. College).</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Center Director's Partition Note -->
+          <div class="stage-synthesis-card">
+            <div class="synthesis-badge">THE PRODUCTION EQUATION</div>
+            <blockquote class="synthesis-quote">
+              &ldquo;Performing teaches you how to capture a room of hundreds. Event operations teaches you how to keep thousands safe, informed, and inspired behind the scenes.&rdquo;
+            </blockquote>
+            <div class="synthesis-specs">
+              <div class="spec-item">
+                <span class="spec-label">DUAL DEGREES</span>
+                <span class="spec-val">IIMB &amp; H.R. College</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">DELEGATES MANAGED</span>
+                <span class="spec-val">3,000+ Attendees</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">PERFORMANCE REALM</span>
+                <span class="spec-val">Theatre, Comedy, Dance</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage Right: The Strategic Operator -->
+          <div class="stage-column stage-column-right">
+            <div class="wing-tag">STAGE RIGHT &bull; BACKSTAGE OPERATIONS</div>
+            <h3 class="wing-heading">The Operations Strategist</h3>
+            <p class="wing-text">
+              Behind the curtain, success is measured in clockwork logistics, delegate experience, and executive diplomacy. Co-leading multi-city conference organizing teams and managing institutional coordination for thousands of international participants requires sharp problem-solving, team stewardship, and systematic planning.
+            </p>
+            <ul class="wing-highlights" aria-label="Operations Highlights">
+              <li>
+                <span class="bullet-cue">&bull;</span>
+                <span>Co-led 6-member organizing team for I.I.M.U.N. regional conferences in Indore and Bilaspur (300+ delegates).</span>
+              </li>
+              <li>
+                <span class="bullet-cue">&bull;</span>
+                <span>Coordinated distinguished dignitaries including Ambassador Ajay Bisaria, Vivek Agnihotri, and Tanesha Mukherjee.</span>
+              </li>
+              <li>
+                <span class="bullet-cue">&bull;</span>
+                <span>Presiding Officer / Committee Chair at July 2024 I.I.M.U.N. Indore Conference and operations lead at Championship Conference (Aamby Valley).</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ACT III: EDUCATION — TWO TRACKS, ONE JOURNEY
+         =================================================================== -->
+    <section id="education" class="stage-section education-section" aria-label="Academic History">
+      <div class="stage-container">
+        <div class="section-cue-header">
+          <div class="cue-dossier">
+            <span class="cue-pill">// ACT II : ACADEMIC SCRIPT</span>
+            <span class="cue-timestamp">2012 &ndash; 2029</span>
+          </div>
+          <h2 class="section-title">Two Tracks, One Journey</h2>
+          <p class="section-kicker">Concurrent undergraduate programmes bridging modern digital enterprise with foundational business management.</p>
+        </div>
+
+        <!-- Featured Dual Undergraduate Tracks -->
+        <div class="education-spotlight-grid">
+          <!-- Card 1: IIM Bangalore -->
+          <article class="edu-card edu-card-featured" aria-labelledby="edu-iimb">
+            <div class="edu-card-header">
+              <div class="edu-meta-row">
+                <span class="edu-status-badge">CURRENTLY PURSUING</span>
+                <span class="edu-years">2026 &ndash; 2029</span>
+              </div>
+              <h3 id="edu-iimb" class="edu-degree">Bachelor of Business Administration (BBA) in Digital Business and Entrepreneurship</h3>
+              <p class="edu-institution">Indian Institute of Management (IIM) Bangalore</p>
+              <p class="edu-location">Bengaluru, Karnataka, India</p>
+            </div>
+            <div class="edu-card-body">
+              <p class="edu-desc">
+                Specialized management degree centered on digital-first business models, venture scalability, technology commercialization, data-driven strategy, and agile entrepreneurial leadership at India's premier management institute.
+              </p>
+              <div class="edu-tags">
+                <span class="edu-tag">Digital Business Models</span>
+                <span class="edu-tag">Entrepreneurship</span>
+                <span class="edu-tag">Strategic Scaling</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: H.R. College of Commerce & Economics -->
+          <article class="edu-card edu-card-featured" aria-labelledby="edu-hr-bms">
+            <div class="edu-card-header">
+              <div class="edu-meta-row">
+                <span class="edu-status-badge">CURRENTLY PURSUING</span>
+                <span class="edu-years">2026 &ndash; 2029</span>
+              </div>
+              <h3 id="edu-hr-bms" class="edu-degree">Bachelor of Management Studies (BMS)</h3>
+              <p class="edu-institution">H.R. College of Commerce and Economics</p>
+              <p class="edu-location">Mumbai, Maharashtra, India</p>
+            </div>
+            <div class="edu-card-body">
+              <p class="edu-desc">
+                Rigorous corporate management curriculum covering organizational behavior, managerial economics, marketing administration, financial analysis, and collegiate team leadership across Mumbai's prestigious commercial circuit.
+              </p>
+              <div class="edu-tags">
+                <span class="edu-tag">Management Studies</span>
+                <span class="edu-tag">Organizational Operations</span>
+                <span class="edu-tag">Collegiate Leadership</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Foundation Academic Timeline (Call Sheet Style) -->
+        <div class="timeline-wrapper">
+          <div class="timeline-title-bar">
+            <span class="timeline-call">// CALL SHEET: FOUNDATION &amp; PREPARATORY EDUCATION</span>
+          </div>
+
+          <div class="timeline-list">
+            <!-- Timeline Item 1: Higher Secondary -->
+            <div class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+                <span class="marker-line"></span>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4 class="timeline-institution">H.R. College of Commerce and Economics, Mumbai</h4>
+                  <span class="timeline-dates">2024 &ndash; 2026</span>
+                </div>
+                <p class="timeline-degree">Higher Secondary Education (Classes XI &amp; XII &mdash; Commerce)</p>
+                <p class="timeline-notes">Commerce stream foundations; active participation in inter-collegiate cultural theatre, dance, and state-level debate circuits.</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2: Schooling -->
+            <div class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4 class="timeline-institution">Sacred Heart School, Kalyan</h4>
+                  <span class="timeline-dates">2012 &ndash; 2024</span>
+                </div>
+                <p class="timeline-degree">Primary &amp; Secondary Schooling</p>
+                <p class="timeline-notes">Formative schooling years; development of early public speaking, state drama competitions, and cultural arts representation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ACT IV: EXPERIENCE — THE SHOW BEHIND THE SHOW
+         =================================================================== -->
+    <section id="experience" class="stage-section experience-section" aria-label="Leadership and Performance Experience">
+      <div class="stage-container">
+        <div class="section-cue-header">
+          <div class="cue-dossier">
+            <span class="cue-pill">// ACT III : PRODUCTION DOSSIER</span>
+            <span class="cue-timestamp">AUGUST 2023 &ndash; PRESENT</span>
+          </div>
+          <h2 class="section-title">The Show Behind The Show</h2>
+          <p class="section-kicker">Directing large-scale national conference operations while captivating audiences from the comedy stage.</p>
+        </div>
+
+        <div class="experience-showcase">
+          <!-- BLOCK 1: I.I.M.U.N. LEADERSHIP & EVENT OPERATIONS -->
+          <article class="experience-card clapboard-card" aria-labelledby="exp-iimun">
+            <!-- Director's Clapboard Header Top Bar -->
+            <div class="clapboard-header" aria-hidden="true">
+              <div class="clapboard-stripes"></div>
+              <div class="clapboard-meta">
+                <span>SCENE: I.I.M.U.N.</span>
+                <span>TAKE: 01</span>
+                <span>ROLL: OPS</span>
+                <span>SOUND: SYNC</span>
+              </div>
+            </div>
+
+            <div class="experience-card-inner">
+              <div class="experience-title-area">
+                <div class="experience-tag-row">
+                  <span class="badge badge-accent">LEADERSHIP &amp; EVENT OPERATIONS</span>
+                  <span class="badge badge-outline">AUG 2023 &ndash; JUL 2024</span>
+                </div>
+                <h3 id="exp-iimun" class="experience-role">Intern &amp; Presiding Officer (Committee Chair)</h3>
+                <h4 class="experience-company">India's International Movement to Unite Nations (I.I.M.U.N.)</h4>
+              </div>
+
+              <!-- Operational Pillars Grid -->
+              <div class="operational-grid">
+                <!-- Pillar 1 -->
+                <div class="ops-pillar">
+                  <div class="ops-icon-wrap" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <h5 class="ops-title">Regional Conference Management</h5>
+                  <p class="ops-text">
+                    Co-led a six-member organizing team to plan and execute two major regional conferences in <strong>Indore</strong> and <strong>Bilaspur</strong>. Steered end-to-end logistics, venue administration, and accommodation for <strong>300+ delegates</strong>.
+                  </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="ops-pillar">
+                  <div class="ops-icon-wrap" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                  </div>
+                  <h5 class="ops-title">Distinguished Speaker Coordination</h5>
+                  <p class="ops-text">
+                    Directly coordinated hospitality, scheduling, and stage protocols for high-profile guest dignitaries including <strong>Ambassador Ajay Bisaria</strong> (former High Commissioner of India to Pakistan &amp; Canada), filmmaker <strong>Vivek Agnihotri</strong>, and actress <strong>Tanesha Mukherjee</strong>.
+                  </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="ops-pillar">
+                  <div class="ops-icon-wrap" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </div>
+                  <h5 class="ops-title">Committee Moderation (Presiding Officer)</h5>
+                  <p class="ops-text">
+                    Chaired and moderated intense multilateral committee sessions as <strong>Presiding Officer</strong> at the July 2024 I.I.M.U.N. Indore Conference, following two prior successful delegate appearances, including the Championship Conference in August 2023.
+                  </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="ops-pillar">
+                  <div class="ops-icon-wrap" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  </div>
+                  <h5 class="ops-title">Mega-Scale Championship Operations</h5>
+                  <p class="ops-text">
+                    Managed delegate operations and institutional coordination at the flagship <strong>I.I.M.U.N. Championship Conference at Aamby Valley</strong>, supporting <strong>3,000+ delegates from 450+ schools across 26+ countries</strong> and 100+ distinguished guests.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Backstage Production Note -->
+              <div class="slate-footer-note">
+                <span class="note-label">OPS METRIC:</span>
+                <span class="note-content">3,000+ delegates &bull; 450+ educational institutions &bull; 26+ countries &bull; 2 regional conferences co-led</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- BLOCK 2: STAND-UP COMEDY & PERFORMING ARTS -->
+          <article class="experience-card comedy-card" aria-labelledby="exp-comedy">
+            <div class="experience-card-inner">
+              <div class="experience-title-area comedy-title-flex">
+                <div>
+                  <div class="experience-tag-row">
+                    <span class="badge badge-accent">STAGE &amp; PERFORMING ARTS</span>
+                    <span class="badge badge-outline">PRESENT</span>
+                  </div>
+                  <h3 id="exp-comedy" class="experience-role">Stand-Up Comedian &amp; Stage Performer</h3>
+                  <h4 class="experience-company">Collegiate Cultural Circuit &amp; Open Mic Venues</h4>
+                </div>
+
+                <!-- Vintage Shure 55SH Style Microphone SVG Motif -->
+                <div class="vintage-mic-badge" aria-hidden="true" title="Vintage Stage Microphone">
+                  <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" class="mic-svg">
+                    <!-- Mic Outer Grill -->
+                    <rect x="22" y="6" width="20" height="28" rx="10" stroke-width="2.5" class="mic-body"/>
+                    <!-- Mic Horizontal Ribs -->
+                    <line x1="22" y1="13" x2="42" y2="13" stroke-width="1.8"/>
+                    <line x1="22" y1="20" x2="42" y2="20" stroke-width="1.8"/>
+                    <line x1="22" y1="27" x2="42" y2="27" stroke-width="1.8"/>
+                    <line x1="32" y1="6" x2="32" y2="34" stroke-width="1.8"/>
+                    <!-- Mic U-Mount Swivel -->
+                    <path d="M16 22v6a16 16 0 0 0 32 0v-6" stroke-width="2.5"/>
+                    <!-- Stand Pole & Base -->
+                    <line x1="32" y1="44" x2="32" y2="56" stroke-width="3"/>
+                    <ellipse cx="32" cy="56" rx="14" ry="4" stroke-width="2.5"/>
+                    <circle cx="32" cy="20" r="2" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="performance-highlights-grid">
+                <!-- Card 1 -->
+                <div class="perf-highlight-box">
+                  <div class="perf-cue-num">STAGE // 01</div>
+                  <h5 class="perf-headline">Live Stand-Up Comedy at Premier Venues</h5>
+                  <p class="perf-text">
+                    Performed live stand-up comedy sets at reputable comedy clubs including <strong>The Habitat (Pune)</strong> after winning <strong>1st Place in the Inter-Collegiate Stand-Up Comedy Event at Waves, BITS Goa</strong>.
+                  </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="perf-highlight-box">
+                  <div class="perf-cue-num">STAGE // 02</div>
+                  <h5 class="perf-headline">National Cultural Circuit Champion</h5>
+                  <p class="perf-text">
+                    Represented <strong>H.R. College</strong> across major national cultural festivals, securing top championship titles in <strong>group dance, competitive street theatre (Nukkad Natak), stage plays, and personality titles</strong>.
+                  </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="perf-highlight-box">
+                  <div class="perf-cue-num">STAGE // 03</div>
+                  <h5 class="perf-headline">Television Solo Act for Salman Khan</h5>
+                  <p class="perf-text">
+                    Performed an exclusive <strong>solo act for Bollywood icon Salman Khan</strong> on a widely broadcast television reality show, demonstrating high-pressure solo stage composure before celebrity judges.
+                  </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="perf-highlight-box">
+                  <div class="perf-cue-num">STAGE // 04</div>
+                  <h5 class="perf-headline">Commercial Screen Appearances</h5>
+                  <p class="perf-text">
+                    Featured performer in <strong>two group commercial advertisements</strong>, applying on-camera performance technique, prompt timing, and dynamic ensemble collaboration.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Comedy Stage Atmosphere Banner -->
+              <div class="comedy-stage-banner">
+                <span class="spot-icon" aria-hidden="true">&#9733;</span>
+                <span class="banner-quote">&ldquo;Comedy is the ultimate rehearsal for management: if you can hold the attention of a skeptical room with only a microphone, you can lead any boardroom.&rdquo;</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ACT V: AWARDS & RECOGNITION — THE HIGHLIGHT REEL
+         =================================================================== -->
+    <section id="awards" class="stage-section awards-section" aria-label="Honors and Awards">
+      <div class="stage-container">
+        <div class="section-cue-header">
+          <div class="cue-dossier">
+            <span class="cue-pill">// ACT IV : THE HIGHLIGHT REEL</span>
+            <span class="cue-timestamp">2020 &ndash; 2026 CHRONOLOGY</span>
+          </div>
+          <h2 class="section-title">Awards &amp; Recognition</h2>
+          <p class="section-kicker">Championship honors, personality titles, and cultural distinctions earned across India's most competitive stages.</p>
+        </div>
+
+        <!-- Featured Marquee Tickets (Top 3 Distinctive Wins) -->
+        <div class="featured-awards-grid">
+          <!-- Award 1: Mr. Waves & 1st Stand-up -->
+          <article class="theatre-ticket ticket-gold" aria-labelledby="award-mr-waves">
+            <div class="ticket-stub-left">
+              <span class="ticket-date-vertical">OCT 2026</span>
+              <span class="ticket-id-vertical">#WAVES-01</span>
+            </div>
+            <div class="ticket-body">
+              <div class="ticket-meta-tag">MARQUEE VICTORY &bull; PERSONALITY &amp; COMEDY</div>
+              <h3 id="award-mr-waves" class="ticket-title">Mr. Waves 2026 (Personality Title) &amp; 1st Place in Stand-Up Comedy</h3>
+              <p class="ticket-festival">Waves &mdash; BITS Pilani Goa Campus</p>
+              <p class="ticket-desc">Won the premier individual festival personality title alongside first place in competitive stand-up comedy at one of India's largest collegiate cultural festivals.</p>
+              <div class="ticket-barcode" aria-hidden="true">
+                <span>||| | ||||| || | |||| ||| || | ||| |||| |</span>
+                <span class="stub-code">PASS: ADMIT ONE // VIP</span>
+              </div>
+            </div>
+            <div class="ticket-perforation" aria-hidden="true"></div>
+          </article>
+
+          <!-- Award 2: 1st Place Group Dance Waves -->
+          <article class="theatre-ticket ticket-featured" aria-labelledby="award-waves-dance">
+            <div class="ticket-stub-left">
+              <span class="ticket-date-vertical">OCT 2026</span>
+              <span class="ticket-id-vertical">#WAVES-02</span>
+            </div>
+            <div class="ticket-body">
+              <div class="ticket-meta-tag">CHAMPIONSHIP &bull; GROUP DANCE</div>
+              <h3 id="award-waves-dance" class="ticket-title">1st Place &mdash; Group Dance Competition</h3>
+              <p class="ticket-festival">Waves &mdash; BITS Pilani Goa Campus</p>
+              <p class="ticket-desc">Led and performed in the winning group dance routine, capturing top national collegiate honors in synchronization, choreography, and performance energy.</p>
+              <div class="ticket-barcode" aria-hidden="true">
+                <span>|| | |||| ||| | ||||| || | ||| || ||| |</span>
+                <span class="stub-code">PASS: ADMIT ONE // GOLD</span>
+              </div>
+            </div>
+            <div class="ticket-perforation" aria-hidden="true"></div>
+          </article>
+
+          <!-- Award 3: 1st Place Malhar St Xavier's -->
+          <article class="theatre-ticket ticket-featured" aria-labelledby="award-malhar">
+            <div class="ticket-stub-left">
+              <span class="ticket-date-vertical">AUG 2026</span>
+              <span class="ticket-id-vertical">#MALHAR-01</span>
+            </div>
+            <div class="ticket-body">
+              <div class="ticket-meta-tag">ICONIC FESTIVAL &bull; GROUP DANCE</div>
+              <h3 id="award-malhar" class="ticket-title">1st Place &mdash; Group Dance Competition</h3>
+              <p class="ticket-festival">Malhar &mdash; St. Xavier's College, Mumbai</p>
+              <p class="ticket-desc">Secured first place at Mumbai's premier and most competitive collegiate cultural festival, representing collegiate excellence on the grand Malhar stage.</p>
+              <div class="ticket-barcode" aria-hidden="true">
+                <span>|||| | || | |||| ||| | ||||| || | ||| |</span>
+                <span class="stub-code">PASS: ADMIT ONE // GOLD</span>
+              </div>
+            </div>
+            <div class="ticket-perforation" aria-hidden="true"></div>
+          </article>
+        </div>
+
+        <!-- Full Repertoire Programme (Grid of Additional Official Honors) -->
+        <div class="repertoire-programme">
+          <div class="programme-banner">
+            <span class="programme-tag">// COMPREHENSIVE PERFORMANCE REPERTOIRE</span>
+            <span class="programme-note">VERIFIED RESUME ARCHIVE</span>
+          </div>
+
+          <div class="programme-grid">
+            <!-- Item 4: Kiran KC College -->
+            <div class="programme-card">
+              <div class="prog-meta">
+                <span class="prog-date">NOV 2025</span>
+                <span class="prog-type">THEATRE &amp; PLAY</span>
+              </div>
+              <h4 class="prog-title">Winner &mdash; Kiran Inter-Collegiate Fest Nukkad Natak &amp; Stage Play</h4>
+              <p class="prog-inst">K.C. College, Mumbai</p>
+              <p class="prog-note">Representing H.R. College &bull; Street Theatre and Stage Play Division</p>
+            </div>
+
+            <!-- Item 5: KC College Dance -->
+            <div class="programme-card">
+              <div class="prog-meta">
+                <span class="prog-date">MAR 2025</span>
+                <span class="prog-type">DANCE</span>
+              </div>
+              <h4 class="prog-title">1st Place &mdash; Inter-Collegiate Dance Event</h4>
+              <p class="prog-inst">K.C. College, Mumbai</p>
+              <p class="prog-note">Representing H.R. College &bull; Choreographed Group Performance</p>
+            </div>
+
+            <!-- Item 6: VES Talent Showcase -->
+            <div class="programme-card">
+              <div class="prog-meta">
+                <span class="prog-date">FEB 2025</span>
+                <span class="prog-type">TALENT SHOWCASE</span>
+              </div>
+              <h4 class="prog-title">1st Position &mdash; Talent Showcase Competition</h4>
+              <p class="prog-inst">Vivekanand Education Society</p>
+              <p class="prog-note">All-round expressive stage &amp; performance excellence</p>
+            </div>
+
+            <!-- Item 7: Shoutt Jai Hind Drama -->
+            <div class="programme-card">
+              <div class="prog-meta">
+                <span class="prog-date">DEC 2024</span>
+                <span class="prog-type">GROUP DRAMA</span>
+              </div>
+              <h4 class="prog-title">1st Place &mdash; Shoutt Inter-Collegiate Fest (Group Drama)</h4>
+              <p class="prog-inst">Jai Hind College, Churchgate, Mumbai</p>
+              <p class="prog-note">Dramatic ensemble acting &amp; narrative stage presentation</p>
+            </div>
+
+            <!-- Item 8: Maharashtra Marathi Drama -->
+            <div class="programme-card">
+              <div class="prog-meta">
+                <span class="prog-date">FEB 2020</span>
+                <span class="prog-type">STATE-LEVEL THEATRE</span>
+              </div>
+              <h4 class="prog-title">2nd Place (State Level) &mdash; Maharashtra Marathi Drama Competition</h4>
+              <p class="prog-inst">State Cultural Competition, Maharashtra</p>
+              <p class="prog-note">State-wide theatrical performance and competitive linguistic drama</p>
+            </div>
+
+            <!-- Item 9: NCPSL Special Recognition -->
+            <div class="programme-card programme-card-honor">
+              <div class="prog-meta">
+                <span class="prog-date">HONOR</span>
+                <span class="prog-type">CULTURAL RECOGNITION</span>
+              </div>
+              <h4 class="prog-title">Recognized by National Council for Promotion of Sindhi Language</h4>
+              <p class="prog-inst">NCPSL (Govt. of India)</p>
+              <p class="prog-note">Special institutional cultural recognition for linguistic &amp; community preservation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ACT VI: CORE COMPETENCIES — MY BACKSTAGE TOOLKIT
+         =================================================================== -->
+    <section id="skills" class="stage-section skills-section" aria-label="Core Competencies">
+      <div class="stage-container">
+        <div class="section-cue-header">
+          <div class="cue-dossier">
+            <span class="cue-pill">// ACT V : PRODUCTION TOOLKIT</span>
+            <span class="cue-timestamp">CORE COMPETENCIES</span>
+          </div>
+          <h2 class="section-title">My Backstage Toolkit</h2>
+          <p class="section-kicker">Discipline, presence, and systems thinking &mdash; balanced across management operations and performing arts.</p>
+        </div>
+
+        <div class="skills-split-stage">
+          <!-- WING 01: LEADERSHIP & OPERATIONS -->
+          <div class="skill-flightcase">
+            <div class="flightcase-header">
+              <div class="flightcase-rivets" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="flightcase-dept">DEPARTMENT 01 // OPERATIONS</span>
+              <h3 class="flightcase-title">Leadership &amp; Operations</h3>
+            </div>
+            <div class="flightcase-body">
+              <ul class="skill-cards-list" aria-label="Leadership & Operations Competencies">
+                <li class="skill-item">
+                  <div class="skill-marker" aria-hidden="true">&#9670;</div>
+                  <div class="skill-info">
+                    <h4 class="skill-name">Event &amp; Conference Management</h4>
+                    <p class="skill-detail">Multi-city conference execution, venue staging, logistics architecture, and timeline control.</p>
+                  </div>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-marker" aria-hidden="true">&#9670;</div>
+                  <div class="skill-info">
+                    <h4 class="skill-name">Delegate Coordination</h4>
+                    <p class="skill-detail">Managing registration, movement, and experience for cohorts from 300 to over 3,000 delegates.</p>
+                  </div>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-marker" aria-hidden="true">&#9670;</div>
+                  <div class="skill-info">
+                    <h4 class="skill-name">Committee Chairing (MUN)</h4>
+                    <p class="skill-detail">Parliamentary procedure moderation, diplomatic debate guidance, and impartial conflict resolution.</p>
+                  </div>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-marker" aria-hidden="true">&#9670;</div>
+                  <div class="skill-info">
+                    <h4 class="skill-name">Team Leadership</h4>
+                    <p class="skill-detail">Co-leading multi-tier organizing squads under dynamic, fast-moving live event conditions.</p>
+                  </div>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-marker" aria-hidden="true">&#9670;</div>
+                  <div class="skill-info">
+                    <h4 class="skill-name">Stakeholder &amp; Guest Relations</h4>
+                    <p class="skill-detail">Liaising with senior ambassadors, dignitaries, celebrity panelists, and academic principals.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- WING 02: COMMUNICATION & PERFORMING ARTS -->
+          <div class="skill-flightcase">
+            <div class="flightcase-header">
+              <div class="flightcase-rivets" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="flightcase-dept">DEPARTMENT 02 // CREATIVE</span>
+              <h3 class="flightcase-title">Communication &amp; Performing Arts</h3>
+            </div>
+            <div class="flightcase-body">
+              <ul class="skill-cards-list" aria-label="Communication & Performing Arts Competencies">
+                <li class="skill-item">
+                  <div class="skill-marker" aria-hidden="true">&#9672;</div>
+                  <div class="skill-info">
+                    <h4 class="skill-name">Public Speaking</h4>
+                    <p class="skill-detail">Articulate keynote delivery, vocal projection, persuasive debate, and authentic stage engagement.</p>
+                  </div>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-marker" aria-hidden="true">&#9672;</div>
+                  <div class="skill-info">
+                    <h4 class="skill-name">Stand-Up Comedy</h4>
+                    <p class="skill-detail">Observational storytelling, punchline timing, live audience calibration, and crowd-work responsiveness.</p>
+                  </div>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-marker" aria-hidden="true">&#9672;</div>
+                  <div class="skill-info">
+                    <h4 class="skill-name">Choreography &amp; Group Dance</h4>
+                    <p class="skill-detail">Spatial blocking, synchronization training, rhythm interpretation, and high-energy ensemble delivery.</p>
+                  </div>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-marker" aria-hidden="true">&#9672;</div>
+                  <div class="skill-info">
+                    <h4 class="skill-name">Stage Direction &amp; Theatre</h4>
+                    <p class="skill-detail">Street plays (Nukkad Natak), character motivation, physical blocking, and ensemble dramatic pacing.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ACT VII: CONTACT — AFTER THE FINAL CURTAIN
+         =================================================================== -->
+    <section id="contact" class="stage-section contact-section" aria-label="Contact Information">
+      <div class="stage-container">
+        <!-- Theatrical Stage Door Marquee -->
+        <div class="marquee-board">
+          <div class="marquee-lights-frame" aria-hidden="true">
+            <span class="chaser-bulb"></span><span class="chaser-bulb"></span>
+            <span class="chaser-bulb"></span><span class="chaser-bulb"></span>
+            <span class="chaser-bulb"></span><span class="chaser-bulb"></span>
+            <span class="chaser-bulb"></span><span class="chaser-bulb"></span>
+          </div>
+
+          <div class="marquee-inner">
+            <div class="marquee-cue">// ACT VI : CURTAIN CALL</div>
+            <h2 class="marquee-title">&ldquo;The curtain falls. The story continues.&rdquo;</h2>
+            <p class="marquee-subtitle">
+              Whether you are planning a high-impact conference, looking for an energetic stage performer, or seeking a versatile management mind for your next initiative &mdash; let&rsquo;s connect.
+            </p>
+
+            <!-- Backstage Contact Channels -->
+            <div class="contact-channels-grid">
+              <!-- Email Channel -->
+              <a href="mailto:rishabbulchandani29@gmail.com" class="contact-channel-card">
+                <div class="channel-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-type">DIRECT CORRESPONDENCE</span>
+                  <span class="channel-value">rishabbulchandani29@gmail.com</span>
+                </div>
+                <span class="channel-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+
+              <!-- LinkedIn Channel -->
+              <a href="https://linkedin.com/in/rishab-bulchandani-57a412326" class="contact-channel-card" target="_blank" rel="noopener noreferrer">
+                <div class="channel-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-type">PROFESSIONAL NETWORK</span>
+                  <span class="channel-value">linkedin.com/in/rishab-bulchandani-57a412326</span>
+                </div>
+                <span class="channel-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+
+              <!-- Instagram Channel -->
+              <a href="https://instagram.com/rishhh_2910" class="contact-channel-card" target="_blank" rel="noopener noreferrer">
+                <div class="channel-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-type">PERFORMANCE &amp; CULTURAL</span>
+                  <span class="channel-value">@rishhh_2910</span>
+                </div>
+                <span class="channel-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+
+            <!-- Download PDF Resume Call-Out -->
+            <div class="marquee-download-bar">
+              <div class="playbill-ticket-snippet">
+                <span class="ticket-tag">PLAYBILL &bull; OFFICIAL RESUME</span>
+                <span class="ticket-status">VERIFIED 2-PAGE DOCUMENT</span>
+              </div>
+              <a href="Rishab Bulchandani - Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Download Playbill (Resume PDF)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- THEATRICAL BACKSTAGE FOOTER -->
+  <footer class="stage-footer" role="contentinfo">
+    <div class="stage-container footer-flex">
+      <div class="footer-colophon">
+        <p class="footer-title">Rishab Bulchandani</p>
+        <p class="footer-meta">Management Student &bull; Stage Performer &bull; Event Operations Lead</p>
+        <p class="footer-credits">Typography set in Playfair Display, DM Sans &amp; Space Mono.</p>
+      </div>
+
+      <div class="footer-cue-status">
+        <span class="cue-indicator"></span>
+        <span class="cue-label">STAGE LIGHTS STATUS: <strong id="footer-theme-status">LIGHTS OFF (DARK THEME)</strong></span>
+      </div>
+
+      <div class="footer-actions">
+        <a href="#hero" class="back-to-top-btn" aria-label="Return to top of stage">
+          <span>&uarr; Top of Show</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

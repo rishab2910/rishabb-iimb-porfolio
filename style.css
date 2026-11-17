@@ -1,90 +1,126 @@
 /* ==========================================================================
    BEHIND THE CURTAIN — RISHAB BULCHANDANI PORTFOLIO STYLESHEET
-   Stage / Theatre & Film Production Set Aesthetic
-   Built with pure CSS3 (Custom Properties, Grid, Flexbox, Fluid Typography)
+   Theatrical Stage & Film Production Set Aesthetic
+   Featuring Full-Stage Curtain Reveal, Obsidian & Bordeaux Velvet Palette,
+   Dynamic Spotlight Tracking, and Live Running Order HUD
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. DESIGN SYSTEM & CSS CUSTOM PROPERTIES
+   1. BESPOKE THEATRICAL DESIGN SYSTEM (CSS VARIABLES)
    -------------------------------------------------------------------------- */
 :root {
-  /* DARK THEME (Default: Stage Lights OFF) */
-  --bg-main: #111114;                     /* Midnight charcoal */
-  --bg-secondary: #171C27;                /* Deep stage navy */
-  --bg-card: #20212A;                     /* Stage card charcoal */
-  --bg-card-hover: #262734;               /* Elevated card state */
-  --text-main: #F4EFE6;                   /* Warm theatre ivory */
-  --text-muted: #AAA8A5;                  /* Muted technical grey */
-  --accent-primary: #E6A15A;              /* Stage-light amber */
-  --accent-secondary: #743D49;            /* Muted theatre burgundy */
-  --accent-glow: rgba(230, 161, 90, 0.28);
-  --border-color: rgba(244, 239, 230, 0.14);
-  --border-subtle: rgba(244, 239, 230, 0.07);
-  --border-strong: rgba(244, 239, 230, 0.28);
+  /* DARK THEME (Stage Lights OFF / Dramatic Velvet House) */
+  --bg-main: #09080A;                     /* Theatrical obsidian velvet */
+  --bg-secondary: #140F13;                /* Deep velvet espresso shadow */
+  --bg-card: #1A1418;                     /* Dark mahogany stage box */
+  --bg-card-hover: #241C22;               /* Elevated card with gold rim glow */
+  --text-main: #FAF6EE;                   /* Warm luminous theatre ivory */
+  --text-muted: #B5ABA0;                  /* Antique parchment tone */
+  --accent-primary: #F5BD6C;              /* 3000K tungsten stage gold */
+  --accent-primary-hover: #FFD28D;
+  --accent-secondary: #9E1B32;            /* Royal theatre bordeaux crimson velvet */
+  --accent-secondary-glow: rgba(158, 27, 50, 0.45);
+  --accent-tertiary: #D49A3D;             /* Polished brass / gold rope */
+  --accent-glow: rgba(245, 189, 108, 0.35);
+  --border-color: rgba(245, 189, 108, 0.22);
+  --border-subtle: rgba(250, 246, 238, 0.08);
+  --border-gold: rgba(245, 189, 108, 0.5);
 
-  /* Theatrical Lighting & Shadows */
-  --spotlight-beam-gradient: radial-gradient(ellipse 65% 55% at 50% 0%, rgba(230, 161, 90, 0.22) 0%, rgba(23, 28, 39, 0.7) 50%, transparent 100%);
-  --stage-floor-line: rgba(244, 239, 230, 0.08);
-  --stage-shadow-deep: rgba(0, 0, 0, 0.65);
-  --card-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-  --ticket-gradient: linear-gradient(135deg, #242532 0%, #1e1f29 100%);
+  /* Theatrical Lighting & Volumetrics */
+  --spotlight-beam-gradient: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(245, 189, 108, 0.25) 0%, rgba(20, 15, 19, 0.85) 55%, transparent 100%);
+  --stage-floor-line: rgba(245, 189, 108, 0.1);
+  --stage-shadow-deep: rgba(0, 0, 0, 0.8);
+  --card-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 0 1px rgba(245, 189, 108, 0.25);
+  --ticket-gradient: linear-gradient(135deg, #221A20 0%, #171116 100%);
 
   /* Switch & Hardware Aesthetics */
-  --switch-plate-bg: #1c1c22;
-  --switch-plate-border: #363642;
-  --switch-bezel-shadow: inset 0 2px 5px rgba(0,0,0,0.8), 0 1px 2px rgba(255,255,255,0.06);
-  --switch-lever-color: #c99352;
-  --switch-lever-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-  --switch-led-color: #e6a15a;
-  --switch-led-glow: 0 0 10px rgba(230, 161, 90, 0.85);
+  --switch-plate-bg: #1e191d;
+  --switch-plate-border: #443741;
+  --switch-bezel-shadow: inset 0 2px 6px rgba(0,0,0,0.9), 0 1px 2px rgba(245, 189, 108, 0.15);
+  --switch-lever-color: #f5bd6c;
+  --switch-lever-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  --switch-led-color: #f5bd6c;
+  --switch-led-glow: 0 0 12px rgba(245, 189, 108, 0.9);
 
-  /* Typography System */
+  /* Velvet Curtains Multi-Stop Gradient */
+  --curtain-velvet: linear-gradient(
+    90deg,
+    #2c040b 0%,
+    #4a0a14 12%,
+    #7a1423 24%,
+    #9c1c2e 36%,
+    #660e1b 48%,
+    #4a0a14 60%,
+    #8f1828 72%,
+    #aa2034 84%,
+    #580b17 93%,
+    #2c040b 100%
+  );
+
+  /* Typography */
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-editorial: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-mono: 'Space Mono', 'SFMono-Regular', Consolas, monospace;
 
-  /* Layout & Spacing */
+  /* Layout Constants */
   --site-max-width: 1200px;
-  --header-height: 80px;
+  --header-height: 82px;
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-lg: 14px;
   --transition-theme: background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
                       color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
                       border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
                       box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* LIGHT THEME (Stage Lights ON) */
+/* LIGHT THEME (Stage Lights ON / Editorial Playbill Vellum) */
 [data-theme="light"] {
-  --bg-main: #F4EFE6;                     /* Warm theatre ivory */
-  --bg-secondary: #E8DFD2;                /* Soft backstage beige */
-  --bg-card: #FFFCF7;                     /* Warm white card */
-  --bg-card-hover: #FFFFFF;
-  --text-main: #222127;                   /* Dark charcoal */
-  --text-muted: #6C6866;                  /* Soft slate grey */
-  --accent-primary: #B95F36;              /* Burnt stage orange */
-  --accent-secondary: #743D49;            /* Deep velvet burgundy */
-  --accent-glow: rgba(185, 95, 54, 0.22);
-  --border-color: rgba(34, 33, 39, 0.16);
-  --border-subtle: rgba(34, 33, 39, 0.08);
-  --border-strong: rgba(34, 33, 39, 0.3);
+  --bg-main: #FAF5ED;                     /* Warm theatre linen parchment */
+  --bg-secondary: #EFE4D2;                /* Soft backstage beige */
+  --bg-card: #FFFFFF;                     /* Clean playbill vellum */
+  --bg-card-hover: #FFFDF9;
+  --text-main: #181514;                   /* Rich printer's charcoal ink */
+  --text-muted: #665D57;                  /* Warm sepia slate */
+  --accent-primary: #B25828;              /* Burnt stage terracotta / gold */
+  --accent-primary-hover: #CC6933;
+  --accent-secondary: #851628;            /* Deep velvet crimson */
+  --accent-secondary-glow: rgba(133, 22, 40, 0.25);
+  --accent-tertiary: #A6732E;             /* Antique bronze */
+  --accent-glow: rgba(178, 88, 40, 0.28);
+  --border-color: rgba(133, 22, 40, 0.18);
+  --border-subtle: rgba(24, 21, 20, 0.08);
+  --border-gold: rgba(178, 88, 40, 0.45);
 
-  /* Theatrical Lighting & Shadows */
-  --spotlight-beam-gradient: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(185, 95, 54, 0.12) 0%, rgba(232, 223, 210, 0.55) 60%, transparent 100%);
-  --stage-floor-line: rgba(34, 33, 39, 0.08);
-  --stage-shadow-deep: rgba(34, 33, 39, 0.18);
-  --card-shadow: 0 16px 32px rgba(34, 33, 39, 0.08);
-  --ticket-gradient: linear-gradient(135deg, #FFF9F0 0%, #F5ECE0 100%);
+  /* Theatrical Lighting & Volumetrics */
+  --spotlight-beam-gradient: radial-gradient(ellipse 75% 65% at 50% 0%, rgba(178, 88, 40, 0.14) 0%, rgba(239, 228, 210, 0.6) 65%, transparent 100%);
+  --stage-floor-line: rgba(24, 21, 20, 0.08);
+  --stage-shadow-deep: rgba(44, 22, 16, 0.18);
+  --card-shadow: 0 16px 36px rgba(44, 22, 16, 0.08), 0 0 1px rgba(133, 22, 40, 0.15);
+  --ticket-gradient: linear-gradient(135deg, #FFFFFF 0%, #F8F1E5 100%);
 
   /* Switch & Hardware Aesthetics */
-  --switch-plate-bg: #e2dbce;
-  --switch-plate-border: #bcb3a2;
-  --switch-bezel-shadow: inset 0 2px 4px rgba(0,0,0,0.25), 0 1px 1px #fff;
-  --switch-lever-color: #b95f36;
-  --switch-lever-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  --switch-led-color: #b95f36;
-  --switch-led-glow: 0 0 12px rgba(185, 95, 54, 0.8);
+  --switch-plate-bg: #e6dcce;
+  --switch-plate-border: #bfaea0;
+  --switch-bezel-shadow: inset 0 2px 4px rgba(0,0,0,0.3), 0 1px 1px #fff;
+  --switch-lever-color: #b25828;
+  --switch-lever-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  --switch-led-color: #b25828;
+  --switch-led-glow: 0 0 12px rgba(178, 88, 40, 0.85);
+
+  --curtain-velvet: linear-gradient(
+    90deg,
+    #3b060f 0%,
+    #5a0c18 12%,
+    #801625 24%,
+    #a31e31 36%,
+    #70111e 48%,
+    #520b16 60%,
+    #94192a 72%,
+    #b02236 84%,
+    #5f0d1a 93%,
+    #3b060f 100%
+  );
 }
 
 /* --------------------------------------------------------------------------
@@ -113,14 +149,18 @@ body {
   min-height: 100vh;
 }
 
-/* Skip link for keyboard accessibility */
+body.curtains-closed {
+  overflow: hidden;
+}
+
+/* Accessibility skip link */
 .skip-link {
   position: absolute;
   top: -60px;
   left: 20px;
   padding: 10px 18px;
   background-color: var(--accent-primary);
-  color: #111114;
+  color: #09080A;
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 700;
@@ -132,16 +172,278 @@ body {
 
 .skip-link:focus {
   top: 15px;
-  outline: 3px solid #F4EFE6;
+  outline: 3px solid #FAF6EE;
 }
 
-/* Text selections styled like stage illumination */
 ::selection {
   background-color: var(--accent-primary);
-  color: #111114;
+  color: #09080A;
 }
 
-/* Subtle stage grain/scaffolding effects */
+/* --------------------------------------------------------------------------
+   3. THEATRICAL CURTAIN STAGE ENTRANCE (REVEAL OVERLAY)
+   -------------------------------------------------------------------------- */
+.stage-curtains-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  display: flex;
+  pointer-events: all;
+  overflow: hidden;
+  transition: visibility 0.8s ease;
+}
+
+.stage-curtains-wrapper.curtains-parted {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Top Theatrical Pelmet / Velvet Swag */
+.curtain-pelmet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: var(--curtain-velvet);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  z-index: 2050;
+  border-bottom: 3px solid var(--accent-tertiary);
+  transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.curtains-parted .curtain-pelmet {
+  transform: translateY(-100%);
+}
+
+.pelmet-gold-rope {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #F5BD6C 0px,
+    #D49A3D 6px,
+    #8A5E1B 12px,
+    #F5BD6C 18px
+  );
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Left and Right Curtains */
+.stage-curtain {
+  position: absolute;
+  top: 0;
+  width: 50.5%;
+  height: 100%;
+  background: var(--curtain-velvet);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+  transition: transform 1.25s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+}
+
+.curtain-left {
+  left: 0;
+  transform-origin: left center;
+  border-right: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+.curtain-right {
+  right: 0;
+  transform-origin: right center;
+  border-left: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+/* When parted, curtains bunch and slide away offstage */
+.curtains-parted .curtain-left {
+  transform: translateX(-102%) scaleX(0.9);
+}
+
+.curtains-parted .curtain-right {
+  transform: translateX(102%) scaleX(0.9);
+}
+
+.curtain-fabric {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.velvet-fold {
+  flex: 1;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.curtain-hem-fringe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: repeating-linear-gradient(
+    90deg,
+    #F5BD6C 0px,
+    #D49A3D 4px,
+    #69430E 8px
+  );
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Center Stage Call Card / Trigger Prompt */
+.curtain-call-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2100;
+  text-align: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.curtains-parted .curtain-call-card {
+  opacity: 0;
+  transform: translate(-50%, -60%) scale(0.92);
+  pointer-events: none;
+}
+
+.call-card-border {
+  background: rgba(14, 11, 14, 0.94);
+  border: 2px solid var(--accent-primary);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 3.25rem) clamp(2rem, 5vw, 3.75rem);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 30px var(--accent-glow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  max-width: 540px;
+}
+
+.call-card-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.call-card-theatre {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: #B5ABA0;
+  margin-bottom: 0.75rem;
+}
+
+.call-card-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #FAF6EE;
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+.call-card-name {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-primary);
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+}
+
+.call-card-desc {
+  font-size: 0.92rem;
+  color: #B5ABA0;
+  margin-bottom: 2rem;
+}
+
+.btn-curtain-open {
+  background: linear-gradient(135deg, #F5BD6C 0%, #D49A3D 100%);
+  color: #09080A;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: 0 6px 22px rgba(245, 189, 108, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-curtain-open:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 30px rgba(245, 189, 108, 0.65);
+}
+
+.curtain-btn-icon {
+  font-size: 0.85rem;
+}
+
+.call-card-subtext {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #8c8278;
+  margin-top: 1rem;
+}
+
+.call-card-subtext kbd {
+  background: #251e24;
+  color: var(--accent-primary);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid rgba(245, 189, 108, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   4. DYNAMIC SPOTLIGHT FOLLOWER & STAGE TEXTURES
+   -------------------------------------------------------------------------- */
+.dynamic-ambient-spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.65;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    circle 320px at var(--mouse-x, 50%) var(--mouse-y, 35%),
+    rgba(245, 189, 108, 0.08) 0%,
+    rgba(158, 27, 50, 0.03) 45%,
+    transparent 75%
+  );
+}
+
+[data-theme="light"] .dynamic-ambient-spotlight {
+  background: radial-gradient(
+    circle 320px at var(--mouse-x, 50%) var(--mouse-y, 35%),
+    rgba(178, 88, 40, 0.06) 0%,
+    rgba(133, 22, 40, 0.02) 45%,
+    transparent 75%
+  );
+}
+
 .stage-noise-overlay {
   position: fixed;
   top: 0;
@@ -150,7 +452,7 @@ body {
   height: 100vh;
   pointer-events: none;
   opacity: 0.035;
-  z-index: 100;
+  z-index: 2;
   background-image: radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px);
   background-size: 24px 24px;
 }
@@ -166,50 +468,32 @@ body {
   pointer-events: none;
   border-left: 1px dashed var(--border-subtle);
   border-right: 1px dashed var(--border-subtle);
-  z-index: 1;
-}
-
-/* Responsive Container */
-.stage-container {
-  width: 100%;
-  max-width: var(--site-max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(1.25rem, 4vw, 2.5rem);
-  padding-right: clamp(1.25rem, 4vw, 2.5rem);
-  position: relative;
   z-index: 2;
 }
 
-/* --------------------------------------------------------------------------
-   3. THEATRICAL DECORATIONS: VALANCE & CURTAINS
-   -------------------------------------------------------------------------- */
 .theatre-valance {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 10px;
+  height: 8px;
   background: var(--accent-secondary);
   border-bottom: 2px solid var(--accent-primary);
-  z-index: 200;
-  box-shadow: 0 4px 12px var(--card-shadow);
+  z-index: 400;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
 }
 
-.theatre-valance .valance-drape {
+.valance-gold-cord {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
   width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    90deg,
-    transparent 0px,
-    transparent 24px,
-    rgba(0, 0, 0, 0.25) 24px,
-    rgba(0, 0, 0, 0.25) 48px
-  );
+  height: 2px;
+  background: var(--accent-tertiary);
 }
 
 /* --------------------------------------------------------------------------
-   4. NAVIGATION BAR (BACKSTAGE RIG)
+   5. NAVIGATION BAR & CONTROLS
    -------------------------------------------------------------------------- */
 .backstage-nav {
   position: sticky;
@@ -217,8 +501,8 @@ body {
   width: 100%;
   background-color: var(--bg-main);
   border-bottom: 1px solid var(--border-color);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   z-index: 500;
   transition: var(--transition-theme);
 }
@@ -233,17 +517,11 @@ body {
   justify-content: space-between;
 }
 
-/* Brand Identity */
 .nav-brand {
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: var(--text-main);
-  transition: opacity 0.2s ease;
-}
-
-.nav-brand:hover {
-  opacity: 0.9;
 }
 
 .brand-cue {
@@ -270,11 +548,10 @@ body {
   text-transform: uppercase;
 }
 
-/* Desktop Navigation Links */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.8rem;
+  gap: 1.6rem;
 }
 
 .nav-link {
@@ -319,18 +596,44 @@ body {
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
-/* --------------------------------------------------------------------------
-   5. PHYSICAL STAGE LIGHT SWITCH (CORE INTERACTION)
-   -------------------------------------------------------------------------- */
+/* Curtain Replay Button */
+.btn-curtain-replay {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-curtain-replay:hover {
+  background-color: var(--accent-secondary);
+  border-color: var(--accent-primary);
+  color: #FAF6EE;
+  transform: translateY(-1px);
+}
+
+.replay-icon {
+  font-size: 0.9rem;
+}
+
+/* Physical Light Switch */
 .switch-housing {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   padding: 4px 8px;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
 }
@@ -360,7 +663,6 @@ body {
   font-weight: 700;
 }
 
-/* The tactile industrial toggle switch */
 .physical-switch {
   background: none;
   border: none;
@@ -383,17 +685,16 @@ body {
   background: var(--switch-plate-bg);
   border: 1.5px solid var(--switch-plate-border);
   border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
   transition: background 0.35s ease, border-color 0.35s ease;
 }
 
-/* Fastening Screws in Corners */
 .screw {
   position: absolute;
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #555562;
+  background: #6b5c68;
   box-shadow: inset 0 1px 1px #000;
 }
 .screw-tl { top: 3px; left: 3px; }
@@ -401,7 +702,6 @@ body {
 .screw-bl { bottom: 3px; left: 3px; }
 .screw-br { bottom: 3px; right: 3px; }
 
-/* Switch Lever Bezel & Rocker */
 .switch-bezel {
   position: absolute;
   top: 50%;
@@ -409,7 +709,7 @@ body {
   transform: translate(-50%, -50%);
   width: 22px;
   height: 32px;
-  background: #0f1015;
+  background: #0b090b;
   border-radius: 4px;
   box-shadow: var(--switch-bezel-shadow);
   display: flex;
@@ -421,22 +721,19 @@ body {
   position: absolute;
   width: 14px;
   height: 16px;
-  background: linear-gradient(180deg, var(--switch-lever-color) 0%, #7d592a 100%);
+  background: linear-gradient(180deg, var(--switch-lever-color) 0%, #8c5e26 100%);
   border-radius: 3px;
   box-shadow: var(--switch-lever-shadow);
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1.2), background 0.3s ease;
   transform: translateY(6px); /* Default: Lever DOWN (Lights Off) */
 }
 
-/* Lever flips UP when lights are ON */
 [data-theme="light"] .switch-lever {
   transform: translateY(-6px);
-  background: linear-gradient(180deg, #d37446 0%, var(--switch-lever-color) 100%);
+  background: linear-gradient(180deg, #d46d37 0%, var(--switch-lever-color) 100%);
 }
 
-/* --------------------------------------------------------------------------
-   6. MOBILE NAVIGATION DRAWER
-   -------------------------------------------------------------------------- */
+/* Mobile Nav Button */
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -457,6 +754,7 @@ body {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Mobile Drawer */
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
@@ -466,8 +764,8 @@ body {
   height: 100vh;
   background: var(--bg-card);
   border-left: 2px solid var(--accent-secondary);
-  box-shadow: -10px 0 30px rgba(0,0,0,0.7);
-  z-index: 1000;
+  box-shadow: -12px 0 40px rgba(0,0,0,0.8);
+  z-index: 1500;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -546,8 +844,85 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   7. BUTTONS & INTERACTIVE ELEMENTS
+   6. FLOATING STAGE RUNNING ORDER HUD
    -------------------------------------------------------------------------- */
+.stage-running-hud {
+  position: fixed;
+  bottom: 24px;
+  right: 28px;
+  z-index: 450;
+  pointer-events: none;
+}
+
+.hud-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(14, 11, 14, 0.88);
+  border: 1px solid var(--border-color);
+  padding: 8px 14px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[data-theme="light"] .hud-inner {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(44, 22, 16, 0.12);
+}
+
+.hud-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 8px var(--accent-glow);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.hud-cue-id {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.hud-progress-track {
+  width: 60px;
+  height: 3px;
+  background: var(--border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.hud-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: var(--accent-primary);
+  transition: width 0.15s ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   7. STAGE CONTAINER & BUTTONS
+   -------------------------------------------------------------------------- */
+.stage-container {
+  width: 100%;
+  max-width: var(--site-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 2.5rem);
+  padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  position: relative;
+  z-index: 4;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -567,17 +942,16 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--accent-primary);
-  color: #111114;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-tertiary) 100%);
+  color: #09080A;
   border: 1px solid var(--accent-primary);
-  box-shadow: 0 4px 14px var(--accent-glow);
+  box-shadow: 0 4px 16px var(--accent-glow);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--accent-glow);
-  background-color: #f2ad69;
+  box-shadow: 0 8px 24px var(--accent-glow);
 }
 
 .btn-secondary {
@@ -590,7 +964,7 @@ body {
 .btn-secondary:focus-visible {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
-  background-color: rgba(230, 161, 90, 0.06);
+  background-color: rgba(245, 189, 108, 0.06);
   transform: translateY(-2px);
 }
 
@@ -599,7 +973,6 @@ body {
   font-size: 0.78rem;
 }
 
-/* Badges & Tags */
 .badge {
   display: inline-block;
   font-family: var(--font-mono);
@@ -610,9 +983,9 @@ body {
 }
 
 .badge-accent {
-  background-color: rgba(230, 161, 90, 0.14);
+  background-color: rgba(245, 189, 108, 0.14);
   color: var(--accent-primary);
-  border: 1px solid rgba(230, 161, 90, 0.35);
+  border: 1px solid rgba(245, 189, 108, 0.4);
 }
 
 .badge-outline {
@@ -629,14 +1002,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
   padding-bottom: clamp(3rem, 6vw, 5rem);
   background: var(--spotlight-beam-gradient);
   border-bottom: 1px solid var(--border-color);
   overflow: hidden;
 }
 
-/* Theatrical Spotlight Cone */
+/* Theatrical Overhead Lamp & Spotlight Beam */
 .spotlight-rig {
   position: absolute;
   top: 0;
@@ -647,28 +1020,40 @@ body {
   z-index: 1;
 }
 
-.spotlight-cone {
+.overhead-lamp-fixture {
   position: absolute;
-  top: -120px;
-  right: 15%;
-  width: 650px;
-  height: 900px;
-  background: radial-gradient(
-    ellipse at top,
-    rgba(230, 161, 90, 0.25) 0%,
-    rgba(230, 161, 90, 0.08) 40%,
-    transparent 70%
-  );
-  filter: blur(40px);
-  transform: rotate(14deg);
+  top: -20px;
+  right: 28%;
+  width: 120px;
+  height: 24px;
+  background: #110e11;
+  border-radius: 0 0 12px 12px;
+  border: 1px solid var(--accent-primary);
+  box-shadow: 0 6px 18px rgba(245, 189, 108, 0.4);
 }
 
-[data-theme="light"] .spotlight-cone {
+.spotlight-cone-main {
+  position: absolute;
+  top: 0;
+  right: 18%;
+  width: 680px;
+  height: 980px;
   background: radial-gradient(
-    ellipse at top,
-    rgba(185, 95, 54, 0.16) 0%,
-    rgba(185, 95, 54, 0.05) 45%,
-    transparent 75%
+    ellipse at 50% 0%,
+    rgba(245, 189, 108, 0.28) 0%,
+    rgba(245, 189, 108, 0.1) 40%,
+    transparent 70%
+  );
+  filter: blur(35px);
+  transform: rotate(12deg);
+}
+
+[data-theme="light"] .spotlight-cone-main {
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(178, 88, 40, 0.18) 0%,
+    rgba(178, 88, 40, 0.06) 45%,
+    transparent 72%
   );
 }
 
@@ -678,10 +1063,9 @@ body {
   align-items: center;
   gap: clamp(2rem, 5vw, 4.5rem);
   position: relative;
-  z-index: 2;
+  z-index: 4;
 }
 
-/* Hero Content */
 .scene-marker {
   display: flex;
   align-items: center;
@@ -743,7 +1127,6 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Dual Academic Track Cards in Hero */
 .hero-dual-tracks {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -754,15 +1137,26 @@ body {
 .hero-track-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
-  padding: 1.15rem;
+  padding: 1.25rem;
   border-radius: var(--radius-sm);
   position: relative;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .hero-track-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--accent-primary);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.track-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary), transparent);
 }
 
 .track-badge {
@@ -807,7 +1201,7 @@ body {
   gap: 1rem;
 }
 
-/* Hero Stage Visual & Rishab's Portrait */
+/* Hero Stage Pedestal & Portrait Visual */
 .hero-stage-visual {
   display: flex;
   justify-content: center;
@@ -824,7 +1218,6 @@ body {
   align-items: center;
 }
 
-/* Floor Spike Tape Marking '+' */
 .spike-mark {
   position: absolute;
   bottom: 30px;
@@ -837,7 +1230,7 @@ body {
 .spike-mark span {
   position: absolute;
   background-color: var(--accent-primary);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .spike-mark span:first-child {
@@ -854,7 +1247,6 @@ body {
   height: 32px;
 }
 
-/* Spotlight Aura Around Rishab */
 .actor-spotlight-aura {
   position: absolute;
   top: 40px;
@@ -881,32 +1273,31 @@ body {
   height: auto;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 15px 25px var(--stage-shadow-deep));
-  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: drop-shadow(0 18px 30px var(--stage-shadow-deep));
+  transition: transform 0.3s ease;
 }
 
 .actor-portrait:hover {
-  transform: scale(1.015);
+  transform: scale(1.02);
 }
 
 .stage-floor-shadow {
   position: absolute;
-  bottom: 10px;
-  width: 240px;
+  bottom: 8px;
+  width: 250px;
   height: 24px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.75) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85) 0%, transparent 72%);
   border-radius: 50%;
   z-index: 1;
 }
 
 [data-theme="light"] .stage-floor-shadow {
-  background: radial-gradient(ellipse at center, rgba(34, 33, 39, 0.35) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(44, 22, 16, 0.4) 0%, transparent 72%);
 }
 
-/* Backstage Cue Slate Card */
 .stage-cue-slate {
   margin-top: 1.5rem;
-  padding: 0.6rem 1.25rem;
+  padding: 0.65rem 1.35rem;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
@@ -914,7 +1305,7 @@ body {
   font-size: 0.7rem;
   display: flex;
   gap: 1.25rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
   z-index: 4;
 }
 
@@ -924,33 +1315,44 @@ body {
   margin-right: 4px;
 }
 
-/* Stage Footlights Divider */
 .stage-footlights {
   display: flex;
   justify-content: space-around;
   width: 100%;
   max-width: var(--site-max-width);
-  margin: 3rem auto 0;
+  margin: 3.5rem auto 0;
   padding: 0 2rem;
 }
 
 .footlight {
-  width: 12px;
-  height: 6px;
-  border-radius: 6px 6px 0 0;
+  width: 14px;
+  height: 7px;
+  border-radius: 7px 7px 0 0;
   background-color: var(--accent-primary);
-  box-shadow: 0 -4px 12px var(--accent-glow);
-  opacity: 0.6;
+  box-shadow: 0 -4px 14px var(--accent-glow);
+  opacity: 0.65;
 }
 
 /* --------------------------------------------------------------------------
-   9. SECTION STRUCTURE & HEADERS
+   9. SCROLL REVEAL ANIMATIONS & SECTION HEADERS
    -------------------------------------------------------------------------- */
 .stage-section {
   padding-top: clamp(4.5rem, 8vw, 7.5rem);
   padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
   border-bottom: 1px solid var(--border-color);
   position: relative;
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-cue-header {
@@ -1011,10 +1413,12 @@ body {
   display: flex;
   flex-direction: column;
   transition: var(--transition-theme);
+  box-shadow: var(--card-shadow);
 }
 
 .stage-column:hover {
   border-color: var(--accent-primary);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7);
 }
 
 .wing-tag {
@@ -1061,14 +1465,13 @@ body {
 
 .bullet-cue {
   color: var(--accent-primary);
-  font-weight: bold;
+  font-size: 0.85rem;
 }
 
-/* Synthesis Card across both columns */
 .stage-synthesis-card {
   grid-column: 1 / -1;
   background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
-  border: 1px solid var(--border-color);
+  border: 1.5px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: clamp(1.75rem, 3vw, 2.5rem);
   box-shadow: var(--card-shadow);
@@ -1146,6 +1549,7 @@ body {
 .edu-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent-primary);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7);
 }
 
 .edu-card-featured::before {
@@ -1171,10 +1575,11 @@ body {
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   color: var(--accent-primary);
-  background: rgba(230, 161, 90, 0.12);
-  padding: 0.25rem 0.6rem;
+  background: rgba(245, 189, 108, 0.14);
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
   font-weight: 700;
+  border: 1px solid rgba(245, 189, 108, 0.3);
 }
 
 .edu-years {
@@ -1231,12 +1636,12 @@ body {
   border: 1px solid var(--border-subtle);
 }
 
-/* Foundation Academic Timeline (Call Sheet Style) */
 .timeline-wrapper {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: clamp(1.75rem, 3vw, 2.5rem);
+  box-shadow: var(--card-shadow);
 }
 
 .timeline-title-bar {
@@ -1332,7 +1737,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   12. ACT IV: EXPERIENCE — THE SHOW BEHIND THE SHOW
+   12. ACT IV: EXPERIENCE — INTERACTIVE CLAPBOARD & VINTAGE MIC
    -------------------------------------------------------------------------- */
 .experience-showcase {
   display: flex;
@@ -1353,14 +1758,27 @@ body {
   border-color: var(--accent-primary);
 }
 
-/* Block 1: Director's Clapboard Card */
+/* Interactive Director's Clapboard */
 .clapboard-header {
-  background: #17181f;
+  background: #141014;
   border-bottom: 1.5px solid var(--border-color);
   padding: 0.85rem 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.clapboard-stick-top {
+  width: 100%;
+  transform-origin: left bottom;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clapboard-header:hover .clapboard-stick-top,
+.clapboard-header.clapped .clapboard-stick-top {
+  transform: rotate(-3deg);
 }
 
 .clapboard-stripes {
@@ -1368,13 +1786,13 @@ body {
   height: 14px;
   background: repeating-linear-gradient(
     -45deg,
-    #ffffff,
-    #ffffff 16px,
-    #17181f 16px,
-    #17181f 32px
+    #FAF6EE,
+    #FAF6EE 16px,
+    #141014 16px,
+    #141014 32px
   );
   border-radius: 2px;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .clapboard-meta {
@@ -1386,6 +1804,11 @@ body {
   letter-spacing: 0.08em;
   color: var(--accent-primary);
   font-weight: 700;
+}
+
+.clap-cue-tag {
+  color: #B5ABA0;
+  margin-left: auto;
 }
 
 .experience-card-inner {
@@ -1420,7 +1843,6 @@ body {
   font-weight: 600;
 }
 
-/* Operational Pillars Grid */
 .operational-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1438,14 +1860,14 @@ body {
 
 .ops-pillar:hover {
   transform: translateY(-2px);
-  border-color: var(--border-strong);
+  border-color: var(--accent-primary);
 }
 
 .ops-icon-wrap {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-sm);
-  background-color: rgba(230, 161, 90, 0.12);
+  background-color: rgba(245, 189, 108, 0.14);
   color: var(--accent-primary);
   display: flex;
   align-items: center;
@@ -1486,7 +1908,7 @@ body {
   font-weight: 700;
 }
 
-/* Block 2: Comedy & Performing Arts Card */
+/* Comedy Card & Interactive Mic */
 .comedy-title-flex {
   display: flex;
   justify-content: space-between;
@@ -1495,17 +1917,42 @@ body {
 }
 
 .vintage-mic-badge {
+  position: relative;
   color: var(--accent-primary);
-  padding: 8px;
+  padding: 10px;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 50%;
-  box-shadow: 0 4px 16px var(--accent-glow);
+  box-shadow: 0 4px 18px var(--accent-glow);
   flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.mic-svg {
-  display: block;
+.vintage-mic-badge:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px var(--accent-primary);
+}
+
+.mic-soundwave-ring {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-primary);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vintage-mic-badge.mic-active .mic-soundwave-ring {
+  animation: mic-wave 0.8s ease-out;
+}
+
+@keyframes mic-wave {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.6); opacity: 0; }
 }
 
 .performance-highlights-grid {
@@ -1526,7 +1973,7 @@ body {
 
 .perf-highlight-box:hover {
   transform: translateY(-2px);
-  border-color: var(--border-strong);
+  border-color: var(--accent-primary);
 }
 
 .perf-cue-num {
@@ -1554,8 +2001,8 @@ body {
 }
 
 .comedy-stage-banner {
-  background: linear-gradient(90deg, rgba(116, 61, 73, 0.25) 0%, rgba(230, 161, 90, 0.12) 100%);
-  border: 1px solid rgba(230, 161, 90, 0.25);
+  background: linear-gradient(90deg, rgba(158, 27, 50, 0.3) 0%, rgba(245, 189, 108, 0.15) 100%);
+  border: 1px solid rgba(245, 189, 108, 0.35);
   border-radius: var(--radius-sm);
   padding: 1.25rem 1.75rem;
   display: flex;
@@ -1586,7 +2033,6 @@ body {
   margin-bottom: 3.5rem;
 }
 
-/* Authentic Theatrical Ticket Stub Aesthetic */
 .theatre-ticket {
   background: var(--ticket-gradient);
   border: 1px solid var(--border-color);
@@ -1599,12 +2045,11 @@ body {
 }
 
 .theatre-ticket:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.01);
   border-color: var(--accent-primary);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7), 0 0 15px var(--accent-glow);
 }
 
-/* Semi-circular ticket cutouts for real perforated ticket feel */
 .theatre-ticket::before,
 .theatre-ticket::after {
   content: '';
@@ -1706,12 +2151,36 @@ body {
   font-weight: 700;
 }
 
-/* Full Repertoire Programme Grid */
+.ticket-stamp {
+  position: absolute;
+  bottom: 24px;
+  right: 18px;
+  border: 2px solid var(--accent-secondary);
+  color: var(--accent-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 4px 8px;
+  transform: rotate(-14deg);
+  opacity: 0.55;
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+.theatre-ticket:hover .ticket-stamp {
+  opacity: 0.9;
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+/* Full Repertoire Programme */
 .repertoire-programme {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: clamp(1.75rem, 3vw, 2.5rem);
+  box-shadow: var(--card-shadow);
 }
 
 .programme-banner {
@@ -1807,7 +2276,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   14. ACT VI: CORE COMPETENCIES — MY BACKSTAGE TOOLKIT
+   14. ACT VI: CORE COMPETENCIES — FLIGHTCASE TOOLKIT
    -------------------------------------------------------------------------- */
 .skills-split-stage {
   display: grid;
@@ -1815,7 +2284,6 @@ body {
   gap: 2.5rem;
 }
 
-/* Equipment Flightcase Aesthetic */
 .skill-flightcase {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -1844,7 +2312,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #555562;
+  background-color: #786574;
   box-shadow: inset 0 1px 1px #000;
 }
 
@@ -1923,13 +2391,12 @@ body {
   background: var(--bg-card);
   border: 2px solid var(--border-color);
   border-radius: var(--radius-lg);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 25px var(--accent-glow);
   position: relative;
   overflow: hidden;
   padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
 }
 
-/* Marquee Chaser Bulbs Frame */
 .marquee-lights-frame {
   position: absolute;
   top: 12px;
@@ -1979,7 +2446,6 @@ body {
   margin-bottom: 3rem;
 }
 
-/* Contact Channels Grid */
 .contact-channels-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2010,7 +2476,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-sm);
-  background-color: rgba(230, 161, 90, 0.12);
+  background-color: rgba(245, 189, 108, 0.14);
   color: var(--accent-primary);
   display: flex;
   align-items: center;
@@ -2053,7 +2519,6 @@ body {
   transform: translateX(4px);
 }
 
-/* Marquee Download Bar */
 .marquee-download-bar {
   display: flex;
   align-items: center;
@@ -2154,7 +2619,7 @@ body {
 
 .back-to-top-btn:hover {
   background-color: var(--accent-primary);
-  color: #111114;
+  color: #09080A;
 }
 
 /* --------------------------------------------------------------------------
@@ -2196,6 +2661,19 @@ body {
     display: flex;
   }
 
+  .stage-running-hud {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .hud-inner {
+    padding: 6px 10px;
+  }
+
+  .hud-progress-track {
+    display: none;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
   }
@@ -2233,6 +2711,10 @@ body {
 }
 
 @media (max-width: 480px) {
+  .call-card-border {
+    padding: 1.75rem 1.25rem;
+  }
+
   .hero-actions {
     flex-direction: column;
     width: 100%;
@@ -2271,5 +2753,14 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .stage-curtains-wrapper {
+    display: none !important;
+  }
+
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

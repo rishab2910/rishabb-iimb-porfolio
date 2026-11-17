@@ -15,25 +15,86 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Ambient Stage Texture & Floor Guidelines -->
+<body class="curtains-closed">
+
+  <!-- ===================================================================
+       THEATRICAL CURTAIN STAGE ENTRANCE (REVEAL OVERLAY)
+       =================================================================== -->
+  <div id="stage-curtain-overlay" class="stage-curtains-wrapper" aria-modal="true" role="dialog" aria-label="Theatre Stage Curtains">
+    <!-- Top Theatrical Pelmet / Velvet Valance -->
+    <div class="curtain-pelmet" aria-hidden="true">
+      <div class="pelmet-swag"></div>
+      <div class="pelmet-fringe"></div>
+      <div class="pelmet-gold-rope"></div>
+    </div>
+
+    <!-- Left Velvet Stage Curtain -->
+    <div class="stage-curtain curtain-left" id="curtain-left">
+      <div class="curtain-fabric">
+        <div class="velvet-fold fold-1"></div>
+        <div class="velvet-fold fold-2"></div>
+        <div class="velvet-fold fold-3"></div>
+        <div class="velvet-fold fold-4"></div>
+        <div class="velvet-fold fold-5"></div>
+      </div>
+      <div class="curtain-hem-fringe"></div>
+      <div class="curtain-tieback tieback-left" aria-hidden="true"></div>
+    </div>
+
+    <!-- Right Velvet Stage Curtain -->
+    <div class="stage-curtain curtain-right" id="curtain-right">
+      <div class="curtain-fabric">
+        <div class="velvet-fold fold-1"></div>
+        <div class="velvet-fold fold-2"></div>
+        <div class="velvet-fold fold-3"></div>
+        <div class="velvet-fold fold-4"></div>
+        <div class="velvet-fold fold-5"></div>
+      </div>
+      <div class="curtain-hem-fringe"></div>
+      <div class="curtain-tieback tieback-right" aria-hidden="true"></div>
+    </div>
+
+    <!-- Center Stage Playbill Call Card & Entrance Trigger -->
+    <div class="curtain-call-card" id="curtain-prompt-box">
+      <div class="call-card-border">
+        <div class="call-card-badge">// CALL CUE: HOUSE LIGHTS DIMMED</div>
+        <div class="call-card-theatre">THE ROYAL STAGE PRESENTS</div>
+        <h1 class="call-card-title">Behind The Curtain</h1>
+        <p class="call-card-name">RISHAB BULCHANDANI</p>
+        <p class="call-card-desc">Management Student &bull; Stage Performer &bull; Event Operations</p>
+        
+        <button type="button" id="part-curtains-btn" class="btn btn-curtain-open" aria-label="Part the curtains and enter the portfolio">
+          <span class="curtain-btn-icon">&#9654;</span>
+          <span class="curtain-btn-text">Part The Curtains &bull; Enter Backstage</span>
+        </button>
+        <span class="call-card-subtext">Click above or press <kbd>Space</kbd> / <kbd>Enter</kbd> to open the show</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambient Dynamic Spotlight Follower (Tracks mouse & scroll dynamically) -->
+  <div id="dynamic-spotlight" class="dynamic-ambient-spotlight" aria-hidden="true"></div>
+
+  <!-- Background Stage Texture & Scaffolding Guidelines -->
   <div class="stage-noise-overlay" aria-hidden="true"></div>
   <div class="stage-scaffolding-lines" aria-hidden="true"></div>
 
-  <!-- SKIP TO MAIN CONTENT ACCESSIBILITY LINK -->
+  <!-- Accessibility Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- SUBTLE THEATRICAL CURTAIN HEADER BORDER -->
+  <!-- Persistent Theatrical Valance Header Bar -->
   <div class="theatre-valance" aria-hidden="true">
     <div class="valance-drape"></div>
-    <div class="valance-cord"></div>
+    <div class="valance-gold-cord"></div>
   </div>
 
-  <!-- NAVIGATION BAR (BACKSTAGE RIG) -->
+  <!-- ===================================================================
+       NAVIGATION BAR (THE BACKSTAGE RIG)
+       =================================================================== -->
   <header class="backstage-nav" role="banner">
     <div class="nav-container">
       <a href="#hero" class="nav-brand" aria-label="Rishab Bulchandani - Return to top">
-        <span class="brand-cue" aria-hidden="true">[ CUE: 00 ]</span>
+        <span class="brand-cue" aria-hidden="true">[ CUE: 00 &bull; LIVE ]</span>
         <span class="brand-name">Rishab Bulchandani</span>
         <span class="brand-role">Stage &amp; Strategy</span>
       </a>
@@ -48,10 +109,22 @@
         <a href="#contact" class="nav-link"><span class="nav-num">06.</span> Curtain Call</a>
       </nav>
 
-      <!-- Physical Backstage Light Switch & Mobile Hamburger -->
+      <!-- Nav Controls: Curtain Replay, Physical Light Switch & Mobile Hamburger -->
       <div class="nav-controls">
-        <!-- Physical Stage Light Switch -->
-        <div class="switch-housing" title="Toggle Stage Lights (Dark/Light Theme)">
+        <!-- Replay Curtain Button -->
+        <button 
+          type="button" 
+          id="replay-curtains-btn" 
+          class="btn-curtain-replay" 
+          title="Replay stage curtain reveal"
+          aria-label="Replay stage curtain reveal"
+        >
+          <span class="replay-icon" aria-hidden="true">&#127917;</span>
+          <span class="replay-label">Curtains</span>
+        </button>
+
+        <!-- Physical Stage Light Switch (Industrial Rocker) -->
+        <div class="switch-housing" title="Toggle Stage Lights (Dark / Light Theme)">
           <div class="switch-label-tag">
             <span class="switch-status-led" id="switch-led" aria-hidden="true"></span>
             <span class="switch-meta" id="switch-status-text">LIGHTS: OFF</span>
@@ -95,7 +168,7 @@
     <!-- Mobile Drawer Navigation -->
     <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true">
       <div class="drawer-header">
-        <span class="drawer-title">// CALL SHEET NAVIGATION</span>
+        <span class="drawer-title">// PRODUCTION CALL SHEET</span>
         <button type="button" id="mobile-nav-close" class="drawer-close-btn" aria-label="Close menu">&times;</button>
       </div>
       <nav class="drawer-links" aria-label="Mobile Navigation Links">
@@ -107,25 +180,44 @@
         <a href="#contact" class="drawer-link"><span class="drawer-num">ACT VI</span> Curtain Call (Contact)</a>
       </nav>
       <div class="drawer-footer">
+        <button type="button" id="drawer-curtain-btn" class="btn btn-secondary btn-sm" style="width:100%; margin-bottom:0.75rem;">
+          &#127917; Replay Stage Curtains
+        </button>
         <p class="drawer-note">Mumbai &amp; Bengaluru, India</p>
-        <a href="Rishab Bulchandani - Resume.pdf" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-          Download Resume (PDF)
+        <a href="Rishab Bulchandani - Resume.pdf" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" style="width: 100%;">
+          Download Playbill (Resume PDF)
         </a>
       </div>
     </div>
   </header>
 
-  <!-- MAIN STAGE CONTENT -->
+  <!-- ===================================================================
+       FLOATING STAGE RUNNING ORDER HUD (LIVE SCROLL TRACKER)
+       =================================================================== -->
+  <aside class="stage-running-hud" aria-label="Stage Running Order">
+    <div class="hud-inner">
+      <span class="hud-status-dot" aria-hidden="true"></span>
+      <span class="hud-cue-id" id="hud-cue-text">ACT I &bull; THE OVERTURE</span>
+      <div class="hud-progress-track" aria-hidden="true">
+        <div class="hud-progress-bar" id="hud-scroll-bar"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================================================================
+       MAIN STAGE CONTENT
+       =================================================================== -->
   <main id="main-content">
 
     <!-- ===================================================================
          ACT I: OVERTURE / HERO SECTION
          =================================================================== -->
-    <section id="hero" class="hero-section" aria-label="Opening Scene">
-      <!-- Theatrical Spotlight Beam Graphic -->
+    <section id="hero" class="hero-section scroll-scene" data-cue="ACT I • THE OVERTURE" aria-label="Opening Scene">
+      <!-- Theatrical Overhead Spotlight Rig -->
       <div class="spotlight-rig" aria-hidden="true">
-        <div class="spotlight-cone"></div>
-        <div class="spotlight-dust"></div>
+        <div class="overhead-lamp-fixture"></div>
+        <div class="spotlight-cone-main"></div>
+        <div class="spotlight-soft-ambient"></div>
       </div>
 
       <div class="stage-container hero-grid">
@@ -151,14 +243,16 @@
 
           <!-- Dual Academic Track Cards in Hero -->
           <div class="hero-dual-tracks">
-            <div class="hero-track-card">
+            <div class="hero-track-card card-interactive">
+              <div class="track-card-accent" aria-hidden="true"></div>
               <span class="track-badge">TRACK 01 &bull; BENGALURU</span>
               <h2 class="track-title">BBA in Digital Business &amp; Entrepreneurship</h2>
               <p class="track-institution">Indian Institute of Management (IIM) Bangalore</p>
               <span class="track-years">2026 &ndash; 2029</span>
             </div>
 
-            <div class="hero-track-card">
+            <div class="hero-track-card card-interactive">
+              <div class="track-card-accent" aria-hidden="true"></div>
               <span class="track-badge">TRACK 02 &bull; MUMBAI</span>
               <h2 class="track-title">Bachelor of Management Studies (BMS)</h2>
               <p class="track-institution">H.R. College of Commerce and Economics</p>
@@ -182,7 +276,7 @@
         <!-- Hero Stage Floor / Rishab's Portrait Center Stage -->
         <div class="hero-stage-visual">
           <div class="stage-pedestal">
-            <!-- Floor Spike Tape Marking '+' -->
+            <!-- Stage Center Tape Mark '+' -->
             <div class="spike-mark spike-center" title="Stage Center Spike Mark" aria-hidden="true">
               <span></span>
               <span></span>
@@ -201,21 +295,21 @@
                 height="560"
                 loading="eager"
               >
-              <!-- Floor Stage Shadow -->
+              <!-- Realistic Elliptical Stage Floor Shadow -->
               <div class="stage-floor-shadow" aria-hidden="true"></div>
             </div>
 
-            <!-- Backstage Slate / Cue Card -->
+            <!-- Backstage Cue Slate Card -->
             <div class="stage-cue-slate" aria-hidden="true">
               <div class="slate-line"><span>ACTOR:</span> RISHAB BULCHANDANI</div>
               <div class="slate-line"><span>SCENE:</span> PROLOGUE // LIVE</div>
-              <div class="slate-line"><span>CUE:</span> LIGHTS UP</div>
+              <div class="slate-line"><span>CUE:</span> SPOTLIGHT ACTIVE</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Stage Floor Edge Divider -->
+      <!-- Stage Footlights Divider -->
       <div class="stage-footlights" aria-hidden="true">
         <span class="footlight"></span>
         <span class="footlight"></span>
@@ -228,10 +322,10 @@
     <!-- ===================================================================
          ACT II: ABOUT ME — BEYOND THE SPOTLIGHT
          =================================================================== -->
-    <section id="about" class="stage-section about-section" aria-label="About Rishab Bulchandani">
+    <section id="about" class="stage-section about-section scroll-scene" data-cue="ACT II • BEYOND SPOTLIGHT" aria-label="About Rishab Bulchandani">
       <div class="stage-container">
         <!-- Section Header with Backstage Cue -->
-        <div class="section-cue-header">
+        <div class="section-cue-header reveal-item">
           <div class="cue-dossier">
             <span class="cue-pill">// ACT I : PROLOGUE</span>
             <span class="cue-timestamp">RUNNING TIME: CONTINUOUS</span>
@@ -242,7 +336,7 @@
 
         <div class="about-grid">
           <!-- Stage Left: The Performer Profile -->
-          <div class="stage-column stage-column-left">
+          <div class="stage-column stage-column-left reveal-item card-interactive">
             <div class="wing-tag">STAGE LEFT &bull; FRONT OF HOUSE</div>
             <h3 class="wing-heading">The Creative Performer</h3>
             <p class="wing-text">
@@ -250,22 +344,22 @@
             </p>
             <ul class="wing-highlights" aria-label="Stage Highlights">
               <li>
-                <span class="bullet-cue">&bull;</span>
+                <span class="bullet-cue">&#9830;</span>
                 <span>Inter-collegiate Stand-Up Comedy Winner &amp; Mr. Waves 2026 titleholder at BITS Pilani Goa Campus.</span>
               </li>
               <li>
-                <span class="bullet-cue">&bull;</span>
+                <span class="bullet-cue">&#9830;</span>
                 <span>Solo performance for Salman Khan on national television and appearances in two commercial ads.</span>
               </li>
               <li>
-                <span class="bullet-cue">&bull;</span>
+                <span class="bullet-cue">&#9830;</span>
                 <span>1st Place achievements at prestigious festivals including Malhar (St. Xavier's) and Kiran (K.C. College).</span>
               </li>
             </ul>
           </div>
 
           <!-- Center Director's Partition Note -->
-          <div class="stage-synthesis-card">
+          <div class="stage-synthesis-card reveal-item card-interactive">
             <div class="synthesis-badge">THE PRODUCTION EQUATION</div>
             <blockquote class="synthesis-quote">
               &ldquo;Performing teaches you how to capture a room of hundreds. Event operations teaches you how to keep thousands safe, informed, and inspired behind the scenes.&rdquo;
@@ -287,7 +381,7 @@
           </div>
 
           <!-- Stage Right: The Strategic Operator -->
-          <div class="stage-column stage-column-right">
+          <div class="stage-column stage-column-right reveal-item card-interactive">
             <div class="wing-tag">STAGE RIGHT &bull; BACKSTAGE OPERATIONS</div>
             <h3 class="wing-heading">The Operations Strategist</h3>
             <p class="wing-text">
@@ -295,15 +389,15 @@
             </p>
             <ul class="wing-highlights" aria-label="Operations Highlights">
               <li>
-                <span class="bullet-cue">&bull;</span>
+                <span class="bullet-cue">&#9830;</span>
                 <span>Co-led 6-member organizing team for I.I.M.U.N. regional conferences in Indore and Bilaspur (300+ delegates).</span>
               </li>
               <li>
-                <span class="bullet-cue">&bull;</span>
+                <span class="bullet-cue">&#9830;</span>
                 <span>Coordinated distinguished dignitaries including Ambassador Ajay Bisaria, Vivek Agnihotri, and Tanesha Mukherjee.</span>
               </li>
               <li>
-                <span class="bullet-cue">&bull;</span>
+                <span class="bullet-cue">&#9830;</span>
                 <span>Presiding Officer / Committee Chair at July 2024 I.I.M.U.N. Indore Conference and operations lead at Championship Conference (Aamby Valley).</span>
               </li>
             </ul>
@@ -315,9 +409,9 @@
     <!-- ===================================================================
          ACT III: EDUCATION — TWO TRACKS, ONE JOURNEY
          =================================================================== -->
-    <section id="education" class="stage-section education-section" aria-label="Academic History">
+    <section id="education" class="stage-section education-section scroll-scene" data-cue="ACT III • TWO TRACKS" aria-label="Academic History">
       <div class="stage-container">
-        <div class="section-cue-header">
+        <div class="section-cue-header reveal-item">
           <div class="cue-dossier">
             <span class="cue-pill">// ACT II : ACADEMIC SCRIPT</span>
             <span class="cue-timestamp">2012 &ndash; 2029</span>
@@ -329,7 +423,7 @@
         <!-- Featured Dual Undergraduate Tracks -->
         <div class="education-spotlight-grid">
           <!-- Card 1: IIM Bangalore -->
-          <article class="edu-card edu-card-featured" aria-labelledby="edu-iimb">
+          <article class="edu-card edu-card-featured reveal-item card-interactive" aria-labelledby="edu-iimb">
             <div class="edu-card-header">
               <div class="edu-meta-row">
                 <span class="edu-status-badge">CURRENTLY PURSUING</span>
@@ -352,7 +446,7 @@
           </article>
 
           <!-- Card 2: H.R. College of Commerce & Economics -->
-          <article class="edu-card edu-card-featured" aria-labelledby="edu-hr-bms">
+          <article class="edu-card edu-card-featured reveal-item card-interactive" aria-labelledby="edu-hr-bms">
             <div class="edu-card-header">
               <div class="edu-meta-row">
                 <span class="edu-status-badge">CURRENTLY PURSUING</span>
@@ -376,7 +470,7 @@
         </div>
 
         <!-- Foundation Academic Timeline (Call Sheet Style) -->
-        <div class="timeline-wrapper">
+        <div class="timeline-wrapper reveal-item card-interactive">
           <div class="timeline-title-bar">
             <span class="timeline-call">// CALL SHEET: FOUNDATION &amp; PREPARATORY EDUCATION</span>
           </div>
@@ -420,9 +514,9 @@
     <!-- ===================================================================
          ACT IV: EXPERIENCE — THE SHOW BEHIND THE SHOW
          =================================================================== -->
-    <section id="experience" class="stage-section experience-section" aria-label="Leadership and Performance Experience">
+    <section id="experience" class="stage-section experience-section scroll-scene" data-cue="ACT IV • PRODUCTION DOSSIER" aria-label="Leadership and Performance Experience">
       <div class="stage-container">
-        <div class="section-cue-header">
+        <div class="section-cue-header reveal-item">
           <div class="cue-dossier">
             <span class="cue-pill">// ACT III : PRODUCTION DOSSIER</span>
             <span class="cue-timestamp">AUGUST 2023 &ndash; PRESENT</span>
@@ -433,15 +527,17 @@
 
         <div class="experience-showcase">
           <!-- BLOCK 1: I.I.M.U.N. LEADERSHIP & EVENT OPERATIONS -->
-          <article class="experience-card clapboard-card" aria-labelledby="exp-iimun">
-            <!-- Director's Clapboard Header Top Bar -->
-            <div class="clapboard-header" aria-hidden="true">
-              <div class="clapboard-stripes"></div>
+          <article class="experience-card clapboard-card reveal-item card-interactive" aria-labelledby="exp-iimun">
+            <!-- Director's Interactive Clapboard Header Top Bar -->
+            <div class="clapboard-header" id="director-clapboard" title="Click to snap the clapboard clapper!" role="button" tabindex="0" aria-label="Interactive Director's Clapboard: Snap Clapper">
+              <div class="clapboard-stick-top">
+                <div class="clapboard-stripes"></div>
+              </div>
               <div class="clapboard-meta">
                 <span>SCENE: I.I.M.U.N.</span>
                 <span>TAKE: 01</span>
                 <span>ROLL: OPS</span>
-                <span>SOUND: SYNC</span>
+                <span class="clap-cue-tag">[ CLICK TO SNAP ]</span>
               </div>
             </div>
 
@@ -511,7 +607,7 @@
           </article>
 
           <!-- BLOCK 2: STAND-UP COMEDY & PERFORMING ARTS -->
-          <article class="experience-card comedy-card" aria-labelledby="exp-comedy">
+          <article class="experience-card comedy-card reveal-item card-interactive" aria-labelledby="exp-comedy">
             <div class="experience-card-inner">
               <div class="experience-title-area comedy-title-flex">
                 <div>
@@ -523,23 +619,20 @@
                   <h4 class="experience-company">Collegiate Cultural Circuit &amp; Open Mic Venues</h4>
                 </div>
 
-                <!-- Vintage Shure 55SH Style Microphone SVG Motif -->
-                <div class="vintage-mic-badge" aria-hidden="true" title="Vintage Stage Microphone">
+                <!-- Interactive Vintage Shure 55SH Style Microphone SVG Motif -->
+                <div class="vintage-mic-badge" id="interactive-mic" role="button" tabindex="0" title="Click the microphone for a stage sound check!" aria-label="Interactive Stage Microphone">
                   <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" class="mic-svg">
-                    <!-- Mic Outer Grill -->
                     <rect x="22" y="6" width="20" height="28" rx="10" stroke-width="2.5" class="mic-body"/>
-                    <!-- Mic Horizontal Ribs -->
                     <line x1="22" y1="13" x2="42" y2="13" stroke-width="1.8"/>
                     <line x1="22" y1="20" x2="42" y2="20" stroke-width="1.8"/>
                     <line x1="22" y1="27" x2="42" y2="27" stroke-width="1.8"/>
                     <line x1="32" y1="6" x2="32" y2="34" stroke-width="1.8"/>
-                    <!-- Mic U-Mount Swivel -->
                     <path d="M16 22v6a16 16 0 0 0 32 0v-6" stroke-width="2.5"/>
-                    <!-- Stand Pole & Base -->
                     <line x1="32" y1="44" x2="32" y2="56" stroke-width="3"/>
                     <ellipse cx="32" cy="56" rx="14" ry="4" stroke-width="2.5"/>
                     <circle cx="32" cy="20" r="2" fill="currentColor"/>
                   </svg>
+                  <div class="mic-soundwave-ring" aria-hidden="true"></div>
                 </div>
               </div>
 
@@ -595,9 +688,9 @@
     <!-- ===================================================================
          ACT V: AWARDS & RECOGNITION — THE HIGHLIGHT REEL
          =================================================================== -->
-    <section id="awards" class="stage-section awards-section" aria-label="Honors and Awards">
+    <section id="awards" class="stage-section awards-section scroll-scene" data-cue="ACT V • THE HIGHLIGHT REEL" aria-label="Honors and Awards">
       <div class="stage-container">
-        <div class="section-cue-header">
+        <div class="section-cue-header reveal-item">
           <div class="cue-dossier">
             <span class="cue-pill">// ACT IV : THE HIGHLIGHT REEL</span>
             <span class="cue-timestamp">2020 &ndash; 2026 CHRONOLOGY</span>
@@ -609,7 +702,7 @@
         <!-- Featured Marquee Tickets (Top 3 Distinctive Wins) -->
         <div class="featured-awards-grid">
           <!-- Award 1: Mr. Waves & 1st Stand-up -->
-          <article class="theatre-ticket ticket-gold" aria-labelledby="award-mr-waves">
+          <article class="theatre-ticket ticket-gold reveal-item card-interactive" aria-labelledby="award-mr-waves">
             <div class="ticket-stub-left">
               <span class="ticket-date-vertical">OCT 2026</span>
               <span class="ticket-id-vertical">#WAVES-01</span>
@@ -624,11 +717,12 @@
                 <span class="stub-code">PASS: ADMIT ONE // VIP</span>
               </div>
             </div>
+            <div class="ticket-stamp" aria-hidden="true">WINNER</div>
             <div class="ticket-perforation" aria-hidden="true"></div>
           </article>
 
           <!-- Award 2: 1st Place Group Dance Waves -->
-          <article class="theatre-ticket ticket-featured" aria-labelledby="award-waves-dance">
+          <article class="theatre-ticket ticket-featured reveal-item card-interactive" aria-labelledby="award-waves-dance">
             <div class="ticket-stub-left">
               <span class="ticket-date-vertical">OCT 2026</span>
               <span class="ticket-id-vertical">#WAVES-02</span>
@@ -643,11 +737,12 @@
                 <span class="stub-code">PASS: ADMIT ONE // GOLD</span>
               </div>
             </div>
+            <div class="ticket-stamp" aria-hidden="true">1ST PLACE</div>
             <div class="ticket-perforation" aria-hidden="true"></div>
           </article>
 
           <!-- Award 3: 1st Place Malhar St Xavier's -->
-          <article class="theatre-ticket ticket-featured" aria-labelledby="award-malhar">
+          <article class="theatre-ticket ticket-featured reveal-item card-interactive" aria-labelledby="award-malhar">
             <div class="ticket-stub-left">
               <span class="ticket-date-vertical">AUG 2026</span>
               <span class="ticket-id-vertical">#MALHAR-01</span>
@@ -662,12 +757,13 @@
                 <span class="stub-code">PASS: ADMIT ONE // GOLD</span>
               </div>
             </div>
+            <div class="ticket-stamp" aria-hidden="true">1ST PLACE</div>
             <div class="ticket-perforation" aria-hidden="true"></div>
           </article>
         </div>
 
         <!-- Full Repertoire Programme (Grid of Additional Official Honors) -->
-        <div class="repertoire-programme">
+        <div class="repertoire-programme reveal-item card-interactive">
           <div class="programme-banner">
             <span class="programme-tag">// COMPREHENSIVE PERFORMANCE REPERTOIRE</span>
             <span class="programme-note">VERIFIED RESUME ARCHIVE</span>
@@ -747,9 +843,9 @@
     <!-- ===================================================================
          ACT VI: CORE COMPETENCIES — MY BACKSTAGE TOOLKIT
          =================================================================== -->
-    <section id="skills" class="stage-section skills-section" aria-label="Core Competencies">
+    <section id="skills" class="stage-section skills-section scroll-scene" data-cue="ACT VI • BACKSTAGE TOOLKIT" aria-label="Core Competencies">
       <div class="stage-container">
-        <div class="section-cue-header">
+        <div class="section-cue-header reveal-item">
           <div class="cue-dossier">
             <span class="cue-pill">// ACT V : PRODUCTION TOOLKIT</span>
             <span class="cue-timestamp">CORE COMPETENCIES</span>
@@ -760,7 +856,7 @@
 
         <div class="skills-split-stage">
           <!-- WING 01: LEADERSHIP & OPERATIONS -->
-          <div class="skill-flightcase">
+          <div class="skill-flightcase reveal-item card-interactive">
             <div class="flightcase-header">
               <div class="flightcase-rivets" aria-hidden="true">
                 <span></span><span></span><span></span>
@@ -810,7 +906,7 @@
           </div>
 
           <!-- WING 02: COMMUNICATION & PERFORMING ARTS -->
-          <div class="skill-flightcase">
+          <div class="skill-flightcase reveal-item card-interactive">
             <div class="flightcase-header">
               <div class="flightcase-rivets" aria-hidden="true">
                 <span></span><span></span><span></span>
@@ -858,10 +954,10 @@
     <!-- ===================================================================
          ACT VII: CONTACT — AFTER THE FINAL CURTAIN
          =================================================================== -->
-    <section id="contact" class="stage-section contact-section" aria-label="Contact Information">
+    <section id="contact" class="stage-section contact-section scroll-scene" data-cue="ACT VII • CURTAIN CALL" aria-label="Contact Information">
       <div class="stage-container">
         <!-- Theatrical Stage Door Marquee -->
-        <div class="marquee-board">
+        <div class="marquee-board reveal-item card-interactive">
           <div class="marquee-lights-frame" aria-hidden="true">
             <span class="chaser-bulb"></span><span class="chaser-bulb"></span>
             <span class="chaser-bulb"></span><span class="chaser-bulb"></span>
@@ -879,7 +975,7 @@
             <!-- Backstage Contact Channels -->
             <div class="contact-channels-grid">
               <!-- Email Channel -->
-              <a href="mailto:rishabbulchandani29@gmail.com" class="contact-channel-card">
+              <a href="mailto:rishabbulchandani29@gmail.com" class="contact-channel-card card-interactive">
                 <div class="channel-icon" aria-hidden="true">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
@@ -891,7 +987,7 @@
               </a>
 
               <!-- LinkedIn Channel -->
-              <a href="https://linkedin.com/in/rishab-bulchandani-57a412326" class="contact-channel-card" target="_blank" rel="noopener noreferrer">
+              <a href="https://linkedin.com/in/rishab-bulchandani-57a412326" class="contact-channel-card card-interactive" target="_blank" rel="noopener noreferrer">
                 <div class="channel-icon" aria-hidden="true">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </div>
@@ -903,7 +999,7 @@
               </a>
 
               <!-- Instagram Channel -->
-              <a href="https://instagram.com/rishhh_2910" class="contact-channel-card" target="_blank" rel="noopener noreferrer">
+              <a href="https://instagram.com/rishhh_2910" class="contact-channel-card card-interactive" target="_blank" rel="noopener noreferrer">
                 <div class="channel-icon" aria-hidden="true">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 </div>
